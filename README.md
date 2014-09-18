@@ -2,6 +2,7 @@ BWWalkthrough
 ======================
 Version: 0.1
 
+Author: Yari D'areglia [@Bitwaker](http://www.twitter.com/bitwaker)
 
 
 ## What is BWWalkthrough?
@@ -9,6 +10,8 @@ BWWalkthrough (BWWT) is a class that helps you create **Walkthroughs** for your 
 It differs from other similar classes since it hasn't a rigid template; BWWT is just a layer placed over your controllers that gives you complete **freedom on views design**.
 
 ![Preview](http://www.thinkandbuild.it/gifs/BWWalkthrough_mini2.gif)
+
+Video preview [Here](http://vimeo.com/106542773)
 
 The class comes with a set of **prebuilt animations** that are automatically applied to the subviews of each page but it can be  easily substituted by your custom animations.
  
