@@ -2,6 +2,7 @@ BWWalkthrough
 ======================
 Version: 0.1
 
+Author: Yari D'areglia [@Bitwaker](http://www.twitter.com/bitwaker)
 
 
 ## What is BWWalkthrough?
