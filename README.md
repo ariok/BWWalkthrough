@@ -10,6 +10,8 @@ It differs from other similar classes since it hasn't a rigid template; BWWT is 
 
 ![Preview](http://www.thinkandbuild.it/gifs/BWWalkthrough_mini2.gif)
 
+Video preview [Here](http://vimeo.com/106542773)
+
 The class comes with a set of **prebuilt animations** that are automatically applied to the subviews of each page but it can be  easily substituted by your custom animations.
  
 BWWT is essentially defined by 2 classes:
