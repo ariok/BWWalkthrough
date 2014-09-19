@@ -7,21 +7,21 @@ Author: Yari D'areglia [@Bitwaker](http://www.twitter.com/bitwaker)
 
 ## What is BWWalkthrough?
 BWWalkthrough (BWWT) is a class that helps you create **Walkthroughs** for your iOS Apps.
-It differs from other similar classes since it hasn't a rigid template; BWWT is just a layer placed over your controllers that gives you complete **freedom on views design**.
+It differs from other similar classes in that there is no rigid template; rigid template; BWWT is just a layer placed over your controllers that gives you complete **freedom on the design of your views.**.
 
 ![Preview](http://www.thinkandbuild.it/gifs/BWWalkthrough_mini2.gif)
 
 Video preview [Here](http://vimeo.com/106542773)
 
-The class comes with a set of **prebuilt animations** that are automatically applied to the subviews of each page. This set can be  easily substituted by your custom animations.
+The class comes with a set of **pre-built animations** that are automatically applied to the subviews of each page. This set can be  easily substituted with your custom animations.
  
 BWWT is essentially defined by 2 classes:
-**BWWalkthroughViewController** is the Master (or Container). It shows the walkthrough and contains UI elements shared among all the Pages (like UIButtons and UIPageControl).
+**BWWalkthroughViewController** is the Master (or Container). It shows the walkthrough and contains UI elements that are shared among all the Pages (like UIButtons and UIPageControl).
 
-**BWWalkthroughPageViewController** defines every single Page that are going to be displayed with the walkthrough inside the Master.
+**BWWalkthroughPageViewController** defines every single Page that is going to be displayed with the walkthrough inside the Master.
 
-## What it is not?
-BWWT is not a copy-paste/just-work class and it is not a fixed walkthrough template. If you need a simple no-configuration walkthrough, BWWT is not the right choice. 
+## What it's not?
+BWWT is not a copy-paste-and-it-just-works class and it is not a fixed walkthrough template. If you need a simple no-configuration walkthrough, BWWT is not the right choice. 
 
 ## How to use it?
 
@@ -56,11 +56,11 @@ Here is an example that shows how to create a walkthrough reading data from a de
         walkthrough.addViewController(page_three)
 
 ## Prebuilt Animations 
-You can add animations without writing a row of code. You just implement a new Page with its subviews and set an animation style using the runtime argument {Key: **animationType**, type: String} via IB. The BWWalkthrough animates your views depending on the selected animation style.
+You can add animations without writing a line of code. You just implement a new Page with its subviews and set an animation style using the runtime argument {Key: **animationType**, type: String} via IB. The BWWalkthrough animates your views depending on the selected animation style.
 
-At the moment (WIP) the possible value for animationsType are:
+At the moment (WIP!) the possible value for animationsType are:
 **Linear**, **Curve**, **Zoom** and **InOut** 
-The speed of the animation on the X and Y axes **must** be modified using the runtime argument {key: **speed** type:CGPoint}, while the runtime argument {key: **speedVariation** type: CGPoint} adds a speed variation among the subviews of the page depending on the hierarchy position.
+The speed of the animation on the X and Y axes **must** be modified using the runtime argument {key: **speed** type:CGPoint}, while the runtime argument {key: **speedVariation** type: CGPoint} adds a speed variation to the the subviews of the page depending on the hierarchy position.
 
 **Example**
 Let’s say that we have defined these runtime arguments for one of the Pages: 
@@ -79,7 +79,7 @@ So if we have 3 subviews, the speed of each view will be:
 creating the ~~infamous~~ parallax effect.
 
 ## Custom Animations
-Each page of the walkthrough receives information about its normalized offset position implementing the protocol **BWWalkthroughPage**, so you can extend the prebuilt animations adding your super custom animations depending on this value (here is a simple example)
+Each page of the walkthrough receives information about its normalized offset position implementing the protocol **BWWalkthroughPage**, so you can extend the prebuilt animations adding your super-custom-shiny-woah™ animations depending on this value (here is a simple example)
 
     func walkthroughDidScroll(position: CGFloat, offset: CGFloat) {
         var tr = CATransform3DIdentity
