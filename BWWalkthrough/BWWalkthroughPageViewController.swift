@@ -36,11 +36,11 @@ enum WalkthroughAnimationType{
 
 class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
     
-    // Edit these values using "User defined runtime attributes" panel in IB
-    var speed:CGPoint = CGPoint(x: 0.0, y: 0.0);            //
-    var speedVariance:CGPoint = CGPoint(x: 0.0, y: 0.0)     //
-    var animationType:String = "Linear"                     //
-    var animateAlpha:Bool = false                           //
+    // Edit these values using the Attribute inspector or modify directly the "User defined runtime attributes" in IB
+    @IBInspectable var speed:CGPoint = CGPoint(x: 0.0, y: 0.0);            // Note if you set this value via Attribute inspector it can only be an Integer (change it manually via User defined runtime attribute if you need a Float)
+    @IBInspectable var speedVariance:CGPoint = CGPoint(x: 0.0, y: 0.0)     // Note if you set this value via Attribute inspector it can only be an Integer (change it manually via User defined runtime attribute if you need a Float)
+    @IBInspectable var animationType:String = "Linear"                     //
+    @IBInspectable var animateAlpha:Bool = false                           //
 
     
     private var subsWeights:[CGPoint] = Array()
