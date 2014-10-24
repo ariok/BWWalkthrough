@@ -105,6 +105,18 @@ At the moment it's only used to perform custom animations on didScroll.
         
     }
     
+    override func viewDidLayoutSubviews(){
+        // Constraints
+        let metricDict = ["w":view.bounds.size.width,"h":view.bounds.size.height]
+        
+        // - Generic cnst
+        for vc in controllers {
+            vc.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[view(h)]", options:nil, metrics: metricDict, views: ["view":vc.view]))
+            vc.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[view(w)]", options:nil, metrics: metricDict, views: ["view":vc.view]))
+            scrollview.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]|", options:nil, metrics: nil, views: ["view":vc.view,]))
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
         
@@ -158,16 +170,6 @@ At the moment it's only used to perform custom animations on didScroll.
         
         vc.view.setTranslatesAutoresizingMaskIntoConstraints(false)
         scrollview.addSubview(vc.view)
-        
-        // Constraints
-        
-        let metricDict = ["w":vc.view.bounds.size.width,"h":vc.view.bounds.size.height]
-        
-        // - Generic cnst
-        
-        vc.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[view(h)]", options:nil, metrics: metricDict, views: ["view":vc.view]))
-        vc.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[view(w)]", options:nil, metrics: metricDict, views: ["view":vc.view]))
-        scrollview.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]|", options:nil, metrics: nil, views: ["view":vc.view,]))
         
         // cnst for position: 1st element
         
