@@ -60,16 +60,16 @@ You can add animations without writing a line of code. You just implement a new 
 
 At the moment (WIP!) the possible value for animationsType are:
 **Linear**, **Curve**, **Zoom** and **InOut** 
-The speed of the animation on the X and Y axes **must** be modified using the runtime argument {key: **speed** type:CGPoint}, while the runtime argument {key: **speedVariation** type: CGPoint} adds a speed variation to the the subviews of the page depending on the hierarchy position.
+The speed of the animation on the X and Y axes **must** be modified using the runtime argument {key: **speed** type:CGPoint}, while the runtime argument {key: **speedVariance** type: CGPoint} adds a speed variation to the the subviews of the page depending on the hierarchy position.
 
 **Example**
 Let’s say that we have defined these runtime arguments for one of the Pages: 
 
 - animationType: “Linear”
 - speed: {0,1} 
-- speedVariation: {0,2} 
+- speedVariance: {0,2} 
 
-The subviews of the Page will perform a linear animation adding speed to the upfront elements depending on speedVariation.
+The subviews of the Page will perform a linear animation adding speed to the upfront elements depending on speedVariance.
 So if we have 3 subviews, the speed of each view will be:
 
 - view 0 {0,1+2}
