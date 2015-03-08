@@ -19,6 +19,9 @@
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="JJV-op-rSU">
                                 <rect key="frame" x="281" y="263" width="39" height="37"/>
+                                <connections>
+                                    <action selector="pageControlValueChanged" destination="txJ-gV-nlq" eventType="valueChanged" id="SKa-sf-TuZ"/>
+                                </connections>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oX-Xj-2Xl">
                                 <rect key="frame" x="536" y="30" width="48" height="29"/>
