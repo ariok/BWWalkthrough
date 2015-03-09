@@ -186,7 +186,7 @@ At the moment it's only used to perform custom animations on didScroll.
             if let cst = lastViewConstraint{
                 scrollview.removeConstraints(cst)
             }
-            lastViewConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:[view]-|", options:nil, metrics: nil, views: ["view":vc.view])
+            lastViewConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:[view]-0-|", options:nil, metrics: nil, views: ["view":vc.view])
             scrollview.addConstraints(lastViewConstraint!)
         }
     }
