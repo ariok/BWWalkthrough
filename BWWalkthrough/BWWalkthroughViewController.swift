@@ -43,7 +43,7 @@ At the moment it's only used to perform custom animations on didScroll.
     
     // MARK: - Public properties -
     
-    var delegate:BWWalkthroughViewControllerDelegate?
+    weak var delegate:BWWalkthroughViewControllerDelegate?
     
     // TODO: If you need a page control, next or prev buttons add them via IB and connect them with these Outlets
     @IBOutlet var pageControl:UIPageControl?
