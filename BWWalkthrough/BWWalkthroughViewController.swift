@@ -35,7 +35,7 @@ At the moment it's only used to perform custom animations on didScroll.
     // The other pages update their offsets whith values like 2.0, 3.0, -2.0... depending on their positions and on the status of the walkthrough
     // This value can be used on the previous, current and next page to perform custom animations on page's subviews.
     
-    @objc func walkthroughDidScroll(position:CGFloat, offset:CGFloat)   // Called when the main Scrollview...scroll
+    @objc func walkthroughDidScroll(position:CGFloat, offset:CGFloat)   // Called when the main Scrollview...scrolls
 }
 
 
@@ -131,7 +131,7 @@ At the moment it's only used to perform custom animations on didScroll.
         
         if currentPage > 0 {
             
-            delegate?.walkthroughNextButtonPressed?()
+            delegate?.walkthroughPrevButtonPressed?()
             
             var frame = scrollview.frame
             frame.origin.x = CGFloat(currentPage - 1) * frame.size.width
