@@ -1,3 +1,7 @@
+Note: I can't work on this code until the end of April 2015. I'm planning to update BWWalkthrough with better code and in general with code that doesn't break with Xcode 6.3.
+See ya in a couple of weeks! 
+
+
 BWWalkthrough 
 ======================
 Version: 0.1
