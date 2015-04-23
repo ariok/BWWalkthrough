@@ -82,10 +82,10 @@ At the moment it's only used to perform custom animations on didScroll.
         super.init(coder: aDecoder)
     }
     
-    required init() {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         scrollview = UIScrollView()
         controllers = Array()
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     override func viewDidLoad() {

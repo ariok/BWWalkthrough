@@ -12,6 +12,8 @@
 	<dict>
 		<key>2023517FB2B6C6BBDFADD26D5B6D9CC44B0518AD</key>
 		<string>https://github.com/ariok/BWWalkthrough.git</string>
+		<key>3E0FA997F0734B3DE2A568A48C479F4A0B834DC3</key>
+		<string>https://bitbucket.org/bitwaker/molecole_alpha.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BWWalkthroughExample.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>2023517FB2B6C6BBDFADD26D5B6D9CC44B0518AD</key>
 		<string>../..</string>
+		<key>3E0FA997F0734B3DE2A568A48C479F4A0B834DC3</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ariok/BWWalkthrough.git</string>
@@ -28,6 +32,14 @@
 	<string>2023517FB2B6C6BBDFADD26D5B6D9CC44B0518AD</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3E0FA997F0734B3DE2A568A48C479F4A0B834DC3</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
