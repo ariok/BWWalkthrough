@@ -138,8 +138,16 @@ At the moment it's only used to perform custom animations on didScroll.
             scrollview.scrollRectToVisible(frame, animated: true)
         }
     }
-    
-    // TODO: If you want to implement a "skip" option 
+
+    @IBAction func pageControlValueChanged(){
+        if let currentPage = pageControl?.currentPage {
+            var frame = scrollview.frame
+            frame.origin.x = CGFloat(currentPage) * frame.size.width
+            scrollview.scrollRectToVisible(frame, animated: true)
+        }
+    }
+
+    // TODO: If you want to implement a "skip" option
     // connect a button to this IBAction and implement the delegate with the skipWalkthrough
     @IBAction func close(sender: AnyObject){
         delegate?.walkthroughCloseButtonPressed?()
