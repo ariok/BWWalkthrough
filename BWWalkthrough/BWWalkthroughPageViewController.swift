@@ -46,12 +46,11 @@ public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPag
     override public func viewDidLoad() {
         super.viewDidLoad()
         self.view.layer.masksToBounds = true
-        subsWeights = Array()
         
-        for v in view.subviews{
-            speed.x += speedVariance.x
-            speed.y += speedVariance.y
-            subsWeights.append(speed)
+        subsWeights = map(view.subviews as! [UIView]) { (UIView) -> (CGPoint) in
+            self.speed.x += self.speedVariance.x
+            self.speed.y += self.speedVariance.y
+            return self.speed
         }
         
     }
