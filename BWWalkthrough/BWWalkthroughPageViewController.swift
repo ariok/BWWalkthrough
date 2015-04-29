@@ -8,32 +8,29 @@
 
 import UIKit
 
-enum WalkthroughAnimationType{
-    case Linear
-    case Curve
-    case Zoom
-    case InOut
+public enum WalkthroughAnimationType: String {
+    case Linear = "Linear"
+    case Curve  = "Curve"
+    case Zoom   = "Zoom"
+    case InOut  = "InOut"
 
-    static func fromString(str:String)->WalkthroughAnimationType{
-        switch(str){
-            case "Linear":
-            return .Linear
-            
-            case "Curve":
-            return .Curve
-            
-            case "Zoom":
-            return .Zoom
-            
-            case "InOut":
-            return .InOut
-            
-            default:
+    public static func fromString(str:String)->WalkthroughAnimationType {
+        if let type = WalkthroughAnimationType(rawValue: str) {
+            return type
+        }
+        else {
             return .Linear
         }
     }
 }
 
+extension WalkthroughAnimationType: Printable {
+	
+	public var description: String {
+		return self.rawValue
+	}
+
+}
 
 public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
     
