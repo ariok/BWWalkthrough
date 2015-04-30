@@ -63,8 +63,8 @@ public class BWWalkthroughViewController: UIViewController, UIScrollViewDelegate
     
     // MARK: - Private properties -
     
-    private let scrollview:UIScrollView!
-    private var controllers:[UIViewController]!
+    private let scrollview:UIScrollView = UIScrollView()
+    private var controllers:[UIViewController] = []
     private var lastViewConstraint:NSArray?
     
     
@@ -72,28 +72,17 @@ public class BWWalkthroughViewController: UIViewController, UIScrollViewDelegate
     
     required public init(coder aDecoder: NSCoder) {
         // Setup the scrollview
-        scrollview = UIScrollView()
         scrollview.showsHorizontalScrollIndicator = false
         scrollview.showsVerticalScrollIndicator = false
         scrollview.pagingEnabled = true
         
-        // Controllers as empty array
-        controllers = Array()
-        
         super.init(coder: aDecoder)
-    }
-    
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
-        scrollview = UIScrollView()
-        controllers = Array()
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     override public func viewDidLoad() {
         super.viewDidLoad()
         
         // Initialize UIScrollView
-        
         scrollview.delegate = self
         scrollview.setTranslatesAutoresizingMaskIntoConstraints(false)
         
@@ -208,17 +197,9 @@ public class BWWalkthroughViewController: UIViewController, UIScrollViewDelegate
         
         // Hide/Show navigation buttons
         
-        if currentPage == controllers.count - 1{
-            nextButton?.hidden = true
-        }else{
-            nextButton?.hidden = false
-        }
-        
-        if currentPage == 0{
-            prevButton?.hidden = true
-        }else{
-            prevButton?.hidden = false
-        }
+        nextButton?.hidden = (currentPage == controllers.count - 1)
+        prevButton?.hidden = (currentPage == 0)
+
     }
     
     // MARK: - Scrollview Delegate -
