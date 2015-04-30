@@ -8,59 +8,57 @@
 
 import UIKit
 
-enum WalkthroughAnimationType{
-    case Linear
-    case Curve
-    case Zoom
-    case InOut
+public enum WalkthroughAnimationType: String {
+    case Linear = "Linear"
+    case Curve  = "Curve"
+    case Zoom   = "Zoom"
+    case InOut  = "InOut"
 
-    static func fromString(str:String)->WalkthroughAnimationType{
-        switch(str){
-            case "Linear":
-            return .Linear
-            
-            case "Curve":
-            return .Curve
-            
-            case "Zoom":
-            return .Zoom
-            
-            case "InOut":
-            return .InOut
-            
-            default:
+    public static func fromString(str:String)->WalkthroughAnimationType {
+        if let type = WalkthroughAnimationType(rawValue: str) {
+            return type
+        }
+        else {
             return .Linear
         }
     }
 }
 
-class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
+extension WalkthroughAnimationType: Printable {
+	
+	public var description: String {
+		return self.rawValue
+	}
+
+}
+
+@objc (BWWalkthroughPageViewController)
+public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
     
     // Edit these values using the Attribute inspector or modify directly the "User defined runtime attributes" in IB
-    @IBInspectable var speed:CGPoint = CGPoint(x: 0.0, y: 0.0);            // Note if you set this value via Attribute inspector it can only be an Integer (change it manually via User defined runtime attribute if you need a Float)
-    @IBInspectable var speedVariance:CGPoint = CGPoint(x: 0.0, y: 0.0)     // Note if you set this value via Attribute inspector it can only be an Integer (change it manually via User defined runtime attribute if you need a Float)
-    @IBInspectable var animationType:String = "Linear"                     //
-    @IBInspectable var animateAlpha:Bool = false                           //
+    @IBInspectable public var speed:CGPoint = CGPoint(x: 0.0, y: 0.0);            // Note if you set this value via Attribute inspector it can only be an Integer (change it manually via User defined runtime attribute if you need a Float)
+    @IBInspectable public var speedVariance:CGPoint = CGPoint(x: 0.0, y: 0.0)     // Note if you set this value via Attribute inspector it can only be an Integer (change it manually via User defined runtime attribute if you need a Float)
+    @IBInspectable public var animationType:String = "Linear"                     //
+    @IBInspectable public var animateAlpha:Bool = false                           //
 
     
     private var subsWeights:[CGPoint] = Array()
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.view.layer.masksToBounds = true
-        subsWeights = Array()
         
-        for v in view.subviews{
-            speed.x += speedVariance.x
-            speed.y += speedVariance.y
-            subsWeights.append(speed)
+        subsWeights = map(view.subviews as! [UIView]) { (UIView) -> (CGPoint) in
+            self.speed.x += self.speedVariance.x
+            self.speed.y += self.speedVariance.y
+            return self.speed
         }
         
     }
     
     // MARK: BWWalkthroughPage Implementation
     
-    func walkthroughDidScroll(position: CGFloat, offset: CGFloat) {
+    public func walkthroughDidScroll(position: CGFloat, offset: CGFloat) {
         
         for(var i = 0; i < subsWeights.count ;i++){
             
