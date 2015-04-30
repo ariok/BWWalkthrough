@@ -44,16 +44,20 @@ Here is an example that shows how to create a walkthrough reading data from a de
 
         // Get view controllers and build the walkthrough
         let stb = UIStoryboard(name: "Walkthrough", bundle: nil)
-        let walkthrough = stb.instantiateViewControllerWithIdentifier(“Master”) as BWWalkthroughViewController
-        let page_one = stb.instantiateViewControllerWithIdentifier(“page1”) as UIViewController
-        let page_two = stb.instantiateViewControllerWithIdentifier(“page2”) as UIViewController
-        let page_three = stb.instantiateViewControllerWithIdentifier(“page3”) as UIViewController
+        let walkthrough = stb.instantiateViewControllerWithIdentifier("walk") as! BWWalkthroughViewController
+        let page_zero = stb.instantiateViewControllerWithIdentifier("walk0") as! UIViewController
+        let page_one = stb.instantiateViewControllerWithIdentifier("walk1") as! UIViewController
+        let page_two = stb.instantiateViewControllerWithIdentifier("walk2")as! UIViewController
+        let page_three = stb.instantiateViewControllerWithIdentifier("walk3") as! UIViewController
         
         // Attach the pages to the master
         walkthrough.delegate = self
         walkthrough.addViewController(page_one)
         walkthrough.addViewController(page_two)
         walkthrough.addViewController(page_three)
+        walkthrough.addViewController(page_zero)
+        
+        self.presentViewController(walkthrough, animated: true, completion: nil)
 
 ## Prebuilt Animations 
 You can add animations without writing a line of code. You just implement a new Page with its subviews and set an animation style using the runtime argument {Key: **animationType**, type: String} via IB. The BWWalkthrough animates your views depending on the selected animation style.
