@@ -59,6 +59,13 @@ At the moment it's only used to perform custom animations on didScroll.
         }
     }
     
+    var currentViewController:UIViewController{ //the controller for the currently visible page
+        get{
+            let currentPage = self.currentPage;
+            return controllers[currentPage];
+        }
+    }
+    
     
     // MARK: - Private properties -
     
