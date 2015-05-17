@@ -66,6 +66,12 @@ At the moment it's only used to perform custom animations on didScroll.
         }
     }
     
+    var numberOfPages:Int{ //the total number of pages in the walkthrough
+        get{
+            return self.controllers.count;
+        }
+    }
+    
     
     // MARK: - Private properties -
     
