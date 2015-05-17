@@ -141,7 +141,7 @@ At the moment it's only used to perform custom animations on didScroll.
             scrollview.scrollRectToVisible(frame, animated: true)
         } else {
             if (self.delegate != nil){
-                self.delegate?.walkthroughCloseButtonPressed!();
+                self.delegate?.walkthroughCloseButtonPressed?();
             }
         }
     }
