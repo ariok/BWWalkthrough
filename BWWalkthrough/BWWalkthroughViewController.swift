@@ -122,8 +122,10 @@ At the moment it's only used to perform custom animations on didScroll.
     
     // MARK: - Internal methods -
     
+    /**
+     * Progresses to the next page, or calls the finished delegate method if already on the last page
+     */
     @IBAction func nextPage(){
-        
         if (currentPage + 1) < controllers.count {
             
             delegate?.walkthroughNextButtonPressed?()
@@ -131,6 +133,10 @@ At the moment it's only used to perform custom animations on didScroll.
             var frame = scrollview.frame
             frame.origin.x = CGFloat(currentPage + 1) * frame.size.width
             scrollview.scrollRectToVisible(frame, animated: true)
+        } else {
+            if (self.delegate != nil){
+                self.delegate?.walkthroughCloseButtonPressed!();
+            }
         }
     }
     
