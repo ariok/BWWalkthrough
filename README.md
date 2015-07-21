@@ -1,6 +1,6 @@
 BWWalkthrough 
 ======================
-Version: 0.6 (Swift 1.2 compatible)
+Version: 0.6.1 (Swift 1.2 compatible)
 
 Author: Yari D'areglia [@Bitwaker](http://www.twitter.com/bitwaker)
 
