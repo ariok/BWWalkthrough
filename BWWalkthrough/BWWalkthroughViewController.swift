@@ -1,9 +1,26 @@
-//
-//  BWWalkthroughViewController.swift
-//
-//  Created by Yari D'areglia on 15/09/14 (wait... why do I wrote code the Day of my Birthday?! C'Mon Yari... )
-//  Copyright (c) 2014 Yari D'areglia. All rights reserved.
-//
+/*
+The MIT License (MIT)
+
+Copyright (c) 2015 Yari D'areglia @bitwaker
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
 
 import UIKit
 
@@ -51,7 +68,6 @@ At the moment it's only used to perform custom animations on didScroll.
     @IBOutlet var prevButton:UIButton?
     @IBOutlet var closeButton:UIButton?
     
-    
     var currentPage:Int{    // The index of the current page (readonly)
         get{
             let page = Int((scrollview.contentOffset.x / view.bounds.size.width))
@@ -91,7 +107,11 @@ At the moment it's only used to perform custom animations on didScroll.
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize UIScrollView
+        // Initialize UI Elements
+        
+        pageControl?.addTarget(self, action: "pageControlDidTouch", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        // Scrollview
         
         scrollview.delegate = self
         scrollview.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -120,10 +140,7 @@ At the moment it's only used to perform custom animations on didScroll.
         if (currentPage + 1) < controllers.count {
             
             delegate?.walkthroughNextButtonPressed?()
-            
-            var frame = scrollview.frame
-            frame.origin.x = CGFloat(currentPage + 1) * frame.size.width
-            scrollview.scrollRectToVisible(frame, animated: true)
+            gotoPage(currentPage + 1)
         }
     }
     
@@ -132,17 +149,30 @@ At the moment it's only used to perform custom animations on didScroll.
         if currentPage > 0 {
             
             delegate?.walkthroughPrevButtonPressed?()
-            
-            var frame = scrollview.frame
-            frame.origin.x = CGFloat(currentPage - 1) * frame.size.width
-            scrollview.scrollRectToVisible(frame, animated: true)
+            gotoPage(currentPage - 1)
         }
     }
     
-    // TODO: If you want to implement a "skip" option 
-    // connect a button to this IBAction and implement the delegate with the skipWalkthrough
+    // TODO: If you want to implement a "skip" button
+    // connect the button to this IBAction and implement the delegate with the skipWalkthrough
     @IBAction func close(sender: AnyObject){
         delegate?.walkthroughCloseButtonPressed?()
+    }
+    
+    func pageControlDidTouch(){
+
+        if let pc = pageControl{
+            gotoPage(pc.currentPage)
+        }
+    }
+    
+    private func gotoPage(page:Int){
+        
+        if page < controllers.count{
+            var frame = scrollview.frame
+            frame.origin.x = CGFloat(page) * frame.size.width
+            scrollview.scrollRectToVisible(frame, animated: true)
+        }
     }
     
     /**
@@ -192,7 +222,7 @@ At the moment it's only used to perform custom animations on didScroll.
     }
 
     /** 
-    Update the UI to reflect the current walkthrough situation 
+    Update the UI to reflect the current walkthrough status
     **/
     
     private func updateUI(){
@@ -254,13 +284,4 @@ At the moment it's only used to perform custom animations on didScroll.
         updateUI()
     }
     
-    
-    /* WIP */
-    override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        println("CHANGE")
-    }
-    
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        println("SIZE")
-    }
 }
