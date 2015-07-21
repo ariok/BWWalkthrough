@@ -75,6 +75,19 @@ At the moment it's only used to perform custom animations on didScroll.
         }
     }
     
+    var currentViewController:UIViewController{ //the controller for the currently visible page
+        get{
+            let currentPage = self.currentPage;
+            return controllers[currentPage];
+        }
+    }
+    
+    var numberOfPages:Int{ //the total number of pages in the walkthrough
+        get{
+            return self.controllers.count;
+        }
+    }
+    
     
     // MARK: - Private properties -
     
@@ -135,8 +148,10 @@ At the moment it's only used to perform custom animations on didScroll.
     
     // MARK: - Internal methods -
     
+    /**
+     * Progresses to the next page, or calls the finished delegate method if already on the last page
+     */
     @IBAction func nextPage(){
-        
         if (currentPage + 1) < controllers.count {
             
             delegate?.walkthroughNextButtonPressed?()
