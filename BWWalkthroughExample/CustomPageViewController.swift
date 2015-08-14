@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomPageViewController: UIViewController,BWWalkthroughPage {
+class CustomPageViewController: BWWalkthroughPageViewController {
 
     @IBOutlet var imageView:UIImageView?
     @IBOutlet var titleLabel:UILabel?
@@ -20,7 +20,7 @@ class CustomPageViewController: UIViewController,BWWalkthroughPage {
 
     // MARK: BWWalkThroughPage protocol
     
-    func walkthroughDidScroll(position: CGFloat, offset: CGFloat) {
+    override func walkthroughDidScroll(position: CGFloat, offset: CGFloat) {
         var tr = CATransform3DIdentity
         tr.m34 = -1/500.0
         
