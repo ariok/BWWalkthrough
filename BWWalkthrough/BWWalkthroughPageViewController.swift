@@ -62,10 +62,10 @@ class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
     @IBInspectable var animateAlpha:Bool = false
     @IBInspectable var staticTags:String {                                 // A comma separated list of tags that you don't want to animate during the transition/scroll 
         set(value){
-            self.notAnimatableViews = map(split(value){$0 == ","}){String($0).toInt()!}
+            self.notAnimatableViews = value.componentsSeparatedByString(",").map{Int($0)!}
         }
         get{
-            return ",".join(map(notAnimatableViews){String($0)})
+            return notAnimatableViews.map{String($0)}.joinWithSeparator(",")
         }
     }
     
@@ -76,10 +76,10 @@ class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
         self.view.layer.masksToBounds = true
         subsWeights = Array()
         
-        for _ in view.subviews{
+        for v in view.subviews{
             speed.x += speedVariance.x
             speed.y += speedVariance.y
-            if !contains(notAnimatableViews, v.tag){
+            if !notAnimatableViews.contains(v.tag) {
                 subsWeights.append(speed)
             }
         }
@@ -164,10 +164,9 @@ class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
     }
     
     private func applyTransform(index:Int, transform:CATransform3D){
-        if let subview = view.subviews[index] as? UIView{
-            if !contains(notAnimatableViews, subview.tag){
-                view.subviews[index].layer.transform = transform
-            }
+        let subview = view.subviews[index]
+        if !notAnimatableViews.contains(subview.tag){
+            view.subviews[index].layer.transform = transform
         }
     }
     
