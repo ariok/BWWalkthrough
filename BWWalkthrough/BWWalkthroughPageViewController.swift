@@ -50,7 +50,7 @@ class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
         self.view.layer.masksToBounds = true
         subsWeights = Array()
         
-        for v in view.subviews{
+        for _ in view.subviews{
             speed.x += speedVariance.x
             speed.y += speedVariance.y
             subsWeights.append(speed)
@@ -91,7 +91,7 @@ class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
     // MARK: Animations (WIP)
     
     private func animationAlpha(index:Int, var _ offset:CGFloat){
-        let cView = view.subviews[index] as! UIView
+        let cView = view.subviews[index] 
         
         if(offset > 1.0){
             offset = 1.0 + (1.0 - offset)
@@ -101,7 +101,7 @@ class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
     
     private func animationCurve(index:Int, _ offset:CGFloat){
         var transform = CATransform3DIdentity
-        var x:CGFloat = (1.0 - offset) * 10
+        let x:CGFloat = (1.0 - offset) * 10
         transform = CATransform3DTranslate(transform, (pow(x,3) - (x * 25)) * subsWeights[index].x, (pow(x,3) - (x * 20)) * subsWeights[index].y, 0 )
         view.subviews[index].layer.transform = transform
     }
@@ -113,21 +113,21 @@ class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
         if(tmpOffset > 1.0){
             tmpOffset = 1.0 + (1.0 - tmpOffset)
         }
-        var scale:CGFloat = (1.0 - tmpOffset)
+        let scale:CGFloat = (1.0 - tmpOffset)
         transform = CATransform3DScale(transform, 1 - scale , 1 - scale, 1.0)
         view.subviews[index].layer.transform = transform
     }
     
     private func animationLinear(index:Int, _ offset:CGFloat){
         var transform = CATransform3DIdentity
-        var mx:CGFloat = (1.0 - offset) * 100
+        let mx:CGFloat = (1.0 - offset) * 100
         transform = CATransform3DTranslate(transform, mx * subsWeights[index].x, mx * subsWeights[index].y, 0 )
         view.subviews[index].layer.transform = transform
     }
     
     private func animationInOut(index:Int, _ offset:CGFloat){
         var transform = CATransform3DIdentity
-        var x:CGFloat = (1.0 - offset) * 20
+        //var x:CGFloat = (1.0 - offset) * 20
         
         var tmpOffset = offset
         if(tmpOffset > 1.0){
