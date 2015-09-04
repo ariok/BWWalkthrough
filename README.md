@@ -1,6 +1,6 @@
 BWWalkthrough 
 ======================
-Version: 0.5 (Swift 1.2 compatible)
+Version: 0.6.1 (Swift 1.2 compatible)
 
 Author: Yari D'areglia [@Bitwaker](http://www.twitter.com/bitwaker)
 
@@ -77,6 +77,9 @@ So if we have 3 subviews, the speed of each view will be:
 - view 2 {0,1+2+2+2}
 
 creating the ~~infamous~~ parallax effect.
+
+### Exclude Views from automatic animations 
+You might need to avoid animations for some specific subviews.To stop those views to be part of the automatic BWWalkthrough animations you can just specify a list of views’ tags that you don’t want to animate. The Inspectable property `staticTags` (available from version ~> 0.6) accepts a `String` where you can list these tags separated by comma (“1,3,9”). The views indicated by those tags are now excluded from the automatic animations.
 
 ## Custom Animations
 Each page of the walkthrough receives information about its normalized offset position implementing the protocol **BWWalkthroughPage**, so you can extend the prebuilt animations adding your super-custom-shiny-woah™ animations depending on this value (here is a simple example)
