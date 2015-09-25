@@ -37,10 +37,10 @@ class ViewController: UIViewController, BWWalkthroughViewControllerDelegate {
         // Get view controllers and build the walkthrough
         let stb = UIStoryboard(name: "Walkthrough", bundle: nil)
         let walkthrough = stb.instantiateViewControllerWithIdentifier("walk") as! BWWalkthroughViewController
-        let page_zero = stb.instantiateViewControllerWithIdentifier("walk0") as! UIViewController
-        let page_one = stb.instantiateViewControllerWithIdentifier("walk1") as! UIViewController
-        let page_two = stb.instantiateViewControllerWithIdentifier("walk2")as! UIViewController
-        let page_three = stb.instantiateViewControllerWithIdentifier("walk3") as! UIViewController
+        let page_zero = stb.instantiateViewControllerWithIdentifier("walk0")
+        let page_one = stb.instantiateViewControllerWithIdentifier("walk1")
+        let page_two = stb.instantiateViewControllerWithIdentifier("walk2")
+        let page_three = stb.instantiateViewControllerWithIdentifier("walk3")
         
         // Attach the pages to the master
         walkthrough.delegate = self
@@ -56,7 +56,7 @@ class ViewController: UIViewController, BWWalkthroughViewControllerDelegate {
     // MARK: - Walkthrough delegate -
     
     func walkthroughPageDidChange(pageNumber: Int) {
-        println("Current Page \(pageNumber)")
+        print("Current Page \(pageNumber)")
     }
 
     func walkthroughCloseButtonPressed() {
