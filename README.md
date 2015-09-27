@@ -24,6 +24,29 @@ BWWT is essentially defined by 2 classes:
 ## What it's not?
 BWWT is not a copy-paste-and-it-just-works class and it is not a fixed walkthrough template. If you need a simple no-configuration walkthrough, BWWT is not the right choice. 
 
+## Quick Start
+
+```ruby
+# Podfile
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, "8.0"
+
+use_frameworks!
+pod 'BWWalkthrough', :git => 'https://github.com/ariok/BWWalkthrough.git'
+```
+
+Install into your project:
+
+```
+$ pod install
+```
+
+Open your project in Xcode from the .xcworkspace file (not the usual project file):
+
+```
+$ open MyProject.xcworkspace
+```
+
 ## How to use it?
 
 #### Define the Master
