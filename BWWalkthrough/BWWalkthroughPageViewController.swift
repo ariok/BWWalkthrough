@@ -25,7 +25,7 @@ SOFTWARE.
 
 import UIKit
 
-enum WalkthroughAnimationType:String{
+public enum WalkthroughAnimationType:String{
     case Linear = "Linear"
     case Curve = "Curve"
     case Zoom = "Zoom"
@@ -41,7 +41,7 @@ enum WalkthroughAnimationType:String{
     }
 }
 
-class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
+public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
     
     private var animation:WalkthroughAnimationType = .Linear
     private var subsWeights:[CGPoint] = Array()
@@ -71,7 +71,7 @@ class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
     
     // MARK: BWWalkthroughPage Implementation
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.view.layer.masksToBounds = true
         subsWeights = Array()
@@ -86,7 +86,7 @@ class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
         
     }
     
-    func walkthroughDidScroll(position: CGFloat, offset: CGFloat) {
+    public func walkthroughDidScroll(position: CGFloat, offset: CGFloat) {
         
         for(var i = 0; i < subsWeights.count ;i++){
             
