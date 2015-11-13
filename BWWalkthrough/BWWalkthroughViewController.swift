@@ -151,7 +151,7 @@ At the moment it's only used to perform custom animations on didScroll.
     /**
      * Progresses to the next page, or calls the finished delegate method if already on the last page
      */
-    @IBAction func nextPage(){
+    @IBAction public func nextPage(){
         if (currentPage + 1) < controllers.count {
             
             delegate?.walkthroughNextButtonPressed?()
@@ -159,7 +159,7 @@ At the moment it's only used to perform custom animations on didScroll.
         }
     }
     
-    @IBAction func prevPage(){
+    @IBAction public func prevPage(){
         
         if currentPage > 0 {
             
@@ -170,7 +170,7 @@ At the moment it's only used to perform custom animations on didScroll.
     
     // TODO: If you want to implement a "skip" button
     // connect the button to this IBAction and implement the delegate with the skipWalkthrough
-    @IBAction func close(sender: AnyObject){
+    @IBAction public func close(sender: AnyObject){
         delegate?.walkthroughCloseButtonPressed?()
     }
     
