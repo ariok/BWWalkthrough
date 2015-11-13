@@ -23,7 +23,36 @@
 		DAC83D0F19CA3518002D8926 /* BWWalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC83D0D19CA3518002D8926 /* BWWalkthroughPageViewController.swift */; };
 		DAC83D1019CA3518002D8926 /* BWWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC83D0E19CA3518002D8926 /* BWWalkthroughViewController.swift */; };
 		DACF192B19CB9876002BDC52 /* iPhoneScreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DACF192A19CB9876002BDC52 /* iPhoneScreen@2x.png */; };
+		E9FDFD681BF5BB3A008D9D42 /* BWWalkthrough.h in Headers */ = {isa = PBXBuildFile; fileRef = E9FDFD671BF5BB3A008D9D42 /* BWWalkthrough.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9FDFD6C1BF5BB3A008D9D42 /* BWWalkthrough.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FDFD651BF5BB3A008D9D42 /* BWWalkthrough.framework */; };
+		E9FDFD6D1BF5BB3A008D9D42 /* BWWalkthrough.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9FDFD651BF5BB3A008D9D42 /* BWWalkthrough.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9FDFD721BF5BB63008D9D42 /* BWWalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC83D0D19CA3518002D8926 /* BWWalkthroughPageViewController.swift */; };
+		E9FDFD731BF5BB63008D9D42 /* BWWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC83D0E19CA3518002D8926 /* BWWalkthroughViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E9FDFD6A1BF5BB3A008D9D42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC83CD719CA2A9F002D8926 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9FDFD641BF5BB3A008D9D42;
+			remoteInfo = BWWalkthrough;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E9FDFD711BF5BB3B008D9D42 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E9FDFD6D1BF5BB3A008D9D42 /* BWWalkthrough.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DA440EB119CB0942000B275D /* bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg@2x.jpg"; sourceTree = "<group>"; };
@@ -44,10 +73,21 @@
 		DAC83D0D19CA3518002D8926 /* BWWalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWWalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		DAC83D0E19CA3518002D8926 /* BWWalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWWalkthroughViewController.swift; sourceTree = "<group>"; };
 		DACF192A19CB9876002BDC52 /* iPhoneScreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhoneScreen@2x.png"; sourceTree = "<group>"; };
+		E9FDFD651BF5BB3A008D9D42 /* BWWalkthrough.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BWWalkthrough.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9FDFD671BF5BB3A008D9D42 /* BWWalkthrough.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWWalkthrough.h; sourceTree = "<group>"; };
+		E9FDFD691BF5BB3A008D9D42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DAC83CDC19CA2A9F002D8926 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9FDFD6C1BF5BB3A008D9D42 /* BWWalkthrough.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9FDFD611BF5BB3A008D9D42 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -85,6 +125,7 @@
 			children = (
 				DAC83D0C19CA3518002D8926 /* BWWalkthrough */,
 				DAC83CE119CA2A9F002D8926 /* BWWalkthroughExample */,
+				E9FDFD661BF5BB3A008D9D42 /* BWWalkthrough */,
 				DAC83CE019CA2A9F002D8926 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				DAC83CDF19CA2A9F002D8926 /* BWWalkthroughExample.app */,
+				E9FDFD651BF5BB3A008D9D42 /* BWWalkthrough.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,7 +171,27 @@
 			path = BWWalkthrough;
 			sourceTree = "<group>";
 		};
+		E9FDFD661BF5BB3A008D9D42 /* BWWalkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				E9FDFD671BF5BB3A008D9D42 /* BWWalkthrough.h */,
+				E9FDFD691BF5BB3A008D9D42 /* Info.plist */,
+			);
+			path = BWWalkthrough;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E9FDFD621BF5BB3A008D9D42 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9FDFD681BF5BB3A008D9D42 /* BWWalkthrough.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		DAC83CDE19CA2A9F002D8926 /* BWWalkthroughExample */ = {
@@ -139,15 +201,35 @@
 				DAC83CDB19CA2A9F002D8926 /* Sources */,
 				DAC83CDC19CA2A9F002D8926 /* Frameworks */,
 				DAC83CDD19CA2A9F002D8926 /* Resources */,
+				E9FDFD711BF5BB3B008D9D42 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E9FDFD6B1BF5BB3A008D9D42 /* PBXTargetDependency */,
 			);
 			name = BWWalkthroughExample;
 			productName = BWWalkthroughExample;
 			productReference = DAC83CDF19CA2A9F002D8926 /* BWWalkthroughExample.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E9FDFD641BF5BB3A008D9D42 /* BWWalkthrough */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9FDFD701BF5BB3B008D9D42 /* Build configuration list for PBXNativeTarget "BWWalkthrough" */;
+			buildPhases = (
+				E9FDFD601BF5BB3A008D9D42 /* Sources */,
+				E9FDFD611BF5BB3A008D9D42 /* Frameworks */,
+				E9FDFD621BF5BB3A008D9D42 /* Headers */,
+				E9FDFD631BF5BB3A008D9D42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BWWalkthrough;
+			productName = BWWalkthrough;
+			productReference = E9FDFD651BF5BB3A008D9D42 /* BWWalkthrough.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -160,6 +242,9 @@
 				TargetAttributes = {
 					DAC83CDE19CA2A9F002D8926 = {
 						CreatedOnToolsVersion = 6.0;
+					};
+					E9FDFD641BF5BB3A008D9D42 = {
+						CreatedOnToolsVersion = 7.1.1;
 					};
 				};
 			};
@@ -177,6 +262,7 @@
 			projectRoot = "";
 			targets = (
 				DAC83CDE19CA2A9F002D8926 /* BWWalkthroughExample */,
+				E9FDFD641BF5BB3A008D9D42 /* BWWalkthrough */,
 			);
 		};
 /* End PBXProject section */
@@ -200,6 +286,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9FDFD631BF5BB3A008D9D42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -215,7 +308,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9FDFD601BF5BB3A008D9D42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9FDFD721BF5BB63008D9D42 /* BWWalkthroughPageViewController.swift in Sources */,
+				E9FDFD731BF5BB63008D9D42 /* BWWalkthroughViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E9FDFD6B1BF5BB3A008D9D42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9FDFD641BF5BB3A008D9D42 /* BWWalkthrough */;
+			targetProxy = E9FDFD6A1BF5BB3A008D9D42 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DA512B9219CA37AA001AE404 /* Walkthrough.storyboard */ = {
@@ -327,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = BWWalkthroughExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bitwaker.$(PRODUCT_NAME:rfc1034identifier)";
@@ -338,10 +449,58 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = BWWalkthroughExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bitwaker.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E9FDFD6E1BF5BB3B008D9D42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = BWWalkthrough/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bitwaker.BWWalkthrough;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E9FDFD6F1BF5BB3B008D9D42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = BWWalkthrough/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bitwaker.BWWalkthrough;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -365,6 +524,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		E9FDFD701BF5BB3B008D9D42 /* Build configuration list for PBXNativeTarget "BWWalkthrough" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9FDFD6E1BF5BB3B008D9D42 /* Debug */,
+				E9FDFD6F1BF5BB3B008D9D42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
