@@ -60,29 +60,29 @@ At the moment it's only used to perform custom animations on didScroll.
     
     // MARK: - Public properties -
     
-    weak var delegate:BWWalkthroughViewControllerDelegate?
+    public weak var delegate:BWWalkthroughViewControllerDelegate?
     
     // TODO: If you need a page control, next or prev buttons add them via IB and connect them with these Outlets
-    @IBOutlet var pageControl:UIPageControl?
-    @IBOutlet var nextButton:UIButton?
-    @IBOutlet var prevButton:UIButton?
-    @IBOutlet var closeButton:UIButton?
+    @IBOutlet public var pageControl:UIPageControl?
+    @IBOutlet public var nextButton:UIButton?
+    @IBOutlet public var prevButton:UIButton?
+    @IBOutlet public var closeButton:UIButton?
     
-    var currentPage:Int{    // The index of the current page (readonly)
+    public var currentPage:Int{    // The index of the current page (readonly)
         get{
             let page = Int((scrollview.contentOffset.x / view.bounds.size.width))
             return page
         }
     }
     
-    var currentViewController:UIViewController{ //the controller for the currently visible page
+    public var currentViewController:UIViewController{ //the controller for the currently visible page
         get{
             let currentPage = self.currentPage;
             return controllers[currentPage];
         }
     }
     
-    var numberOfPages:Int{ //the total number of pages in the walkthrough
+    public var numberOfPages:Int{ //the total number of pages in the walkthrough
         get{
             return self.controllers.count;
         }
@@ -111,7 +111,7 @@ At the moment it's only used to perform custom animations on didScroll.
         super.init(coder: aDecoder)
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         scrollview = UIScrollView()
         controllers = Array()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -174,7 +174,7 @@ At the moment it's only used to perform custom animations on didScroll.
         delegate?.walkthroughCloseButtonPressed?()
     }
     
-    func pageControlDidTouch(){
+    public func pageControlDidTouch(){
 
         if let pc = pageControl{
             gotoPage(pc.currentPage)
@@ -195,7 +195,7 @@ At the moment it's only used to perform custom animations on didScroll.
     Add a new page to the walkthrough. 
     To have information about the current position of the page in the walkthrough add a UIVIewController which implements BWWalkthroughPage    
     */
-    func addViewController(vc:UIViewController)->Void{
+    public func addViewController(vc:UIViewController)->Void{
         
         controllers.append(vc)
         
