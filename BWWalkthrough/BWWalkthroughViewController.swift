@@ -66,7 +66,7 @@ At the moment it's only used to perform custom animations on didScroll.
     @IBOutlet var pageControl:UIPageControl?
     @IBOutlet var nextButton:UIButton?
     @IBOutlet var prevButton:UIButton?
-    @IBOutlet var closeButton:UIButton?
+    @IBOutlet public var closeButton:UIButton?
     
     public var currentPage:Int{    // The index of the current page (readonly)
         get{
@@ -195,7 +195,7 @@ At the moment it's only used to perform custom animations on didScroll.
     Add a new page to the walkthrough. 
     To have information about the current position of the page in the walkthrough add a UIVIewController which implements BWWalkthroughPage    
     */
-    func addViewController(vc:UIViewController)->Void{
+   public func addViewController(vc:UIViewController)->Void{
         
         controllers.append(vc)
         
