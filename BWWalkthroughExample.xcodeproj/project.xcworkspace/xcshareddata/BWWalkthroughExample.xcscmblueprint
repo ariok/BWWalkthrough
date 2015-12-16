@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2023517FB2B6C6BBDFADD26D5B6D9CC44B0518AD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3E0FA997F0734B3DE2A568A48C479F4A0B834DC3" : 0,
+    "2023517FB2B6C6BBDFADD26D5B6D9CC44B0518AD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "93D7335F-C41D-4EBB-BABD-9AD06DD9C98D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3E0FA997F0734B3DE2A568A48C479F4A0B834DC3" : "",
+    "2023517FB2B6C6BBDFADD26D5B6D9CC44B0518AD" : "BWWalkthrough"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BWWalkthroughExample",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BWWalkthroughExample.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ariok\/BWWalkthrough.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2023517FB2B6C6BBDFADD26D5B6D9CC44B0518AD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/bitwaker\/molecole_alpha.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3E0FA997F0734B3DE2A568A48C479F4A0B834DC3"
+    }
+  ]
+}
