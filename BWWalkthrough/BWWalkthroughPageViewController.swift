@@ -49,9 +49,9 @@ public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPag
     
     // MARK: Inspectable Properties
     // Edit these values using the Attribute inspector or modify directly the "User defined runtime attributes" in IB
-    @IBInspectable var speed:CGPoint = CGPoint(x: 0.0, y: 0.0);            // Note if you set this value via Attribute inspector it can only be an Integer (change it manually via User defined runtime attribute if you need a Float)
-    @IBInspectable var speedVariance:CGPoint = CGPoint(x: 0.0, y: 0.0)     // Note if you set this value via Attribute inspector it can only be an Integer (change it manually via User defined runtime attribute if you need a Float)
-    @IBInspectable var animationType:String {
+    @IBInspectable public var speed:CGPoint = CGPoint(x: 0.0, y: 0.0);            // Note if you set this value via Attribute inspector it can only be an Integer (change it manually via User defined runtime attribute if you need a Float)
+    @IBInspectable public var speedVariance:CGPoint = CGPoint(x: 0.0, y: 0.0)     // Note if you set this value via Attribute inspector it can only be an Integer (change it manually via User defined runtime attribute if you need a Float)
+    @IBInspectable public var animationType:String {
         set(value){
             self.animation = WalkthroughAnimationType(rawValue: value)!
         }
@@ -59,8 +59,8 @@ public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPag
             return self.animation.rawValue
         }
     }
-    @IBInspectable var animateAlpha:Bool = false
-    @IBInspectable var staticTags:String {                                 // A comma separated list of tags that you don't want to animate during the transition/scroll 
+    @IBInspectable public var animateAlpha:Bool = false
+    @IBInspectable public var staticTags:String {                                 // A comma separated list of tags that you don't want to animate during the transition/scroll
         set(value){
             self.notAnimatableViews = value.componentsSeparatedByString(",").map{Int($0)!}
         }

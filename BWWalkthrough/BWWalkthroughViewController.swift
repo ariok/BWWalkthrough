@@ -63,9 +63,9 @@ At the moment it's only used to perform custom animations on didScroll.
     public weak var delegate:BWWalkthroughViewControllerDelegate?
     
     // TODO: If you need a page control, next or prev buttons add them via IB and connect them with these Outlets
-    @IBOutlet var pageControl:UIPageControl?
-    @IBOutlet var nextButton:UIButton?
-    @IBOutlet var prevButton:UIButton?
+    @IBOutlet public var pageControl:UIPageControl?
+    @IBOutlet public var nextButton:UIButton?
+    @IBOutlet public var prevButton:UIButton?
     @IBOutlet public var closeButton:UIButton?
     
     public var currentPage:Int{    // The index of the current page (readonly)
@@ -151,7 +151,7 @@ At the moment it's only used to perform custom animations on didScroll.
     /**
      * Progresses to the next page, or calls the finished delegate method if already on the last page
      */
-    @IBAction func nextPage(){
+    @IBAction public func nextPage(){
         if (currentPage + 1) < controllers.count {
             
             delegate?.walkthroughNextButtonPressed?()
@@ -159,7 +159,7 @@ At the moment it's only used to perform custom animations on didScroll.
         }
     }
     
-    @IBAction func prevPage(){
+    @IBAction public func prevPage(){
         
         if currentPage > 0 {
             
