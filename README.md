@@ -8,7 +8,7 @@ Author: Yari D'areglia [@Bitwaker](http://www.twitter.com/bitwaker)
 
 ## What is BWWalkthrough?
 BWWalkthrough (BWWT) is a class that helps you create **Walkthroughs** for your iOS Apps.
-It differs from other similar classes in that there is no rigid template; rigid template; BWWT is just a layer placed over your controllers that gives you complete **freedom on the design of your views.**.
+It differs from other similar classes in that there is no rigid template; BWWT is just a layer placed over your controllers that gives you complete **freedom on the design of your views.**.
 
 ![Preview](http://www.thinkandbuild.it/gifs/BWWalkthrough_mini2.gif)
 
