@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'BWWalkthrough_Example', :exclusive => true do
+  pod 'BWWalkthrough', :path => '../'
+end
+
+target 'BWWalkthrough_Tests', :exclusive => true do
+  pod 'BWWalkthrough', :path => '../'
+
+  
+end

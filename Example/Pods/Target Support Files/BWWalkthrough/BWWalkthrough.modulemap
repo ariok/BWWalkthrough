@@ -1,0 +1,6 @@
+framework module BWWalkthrough {
+  umbrella header "BWWalkthrough-umbrella.h"
+
+  export *
+  module * { export * }
+}

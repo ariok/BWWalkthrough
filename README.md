@@ -1,7 +1,7 @@
 BWWalkthrough 
 ======================
-Version: 1.0.0 
-Language: Swift 2.0
+Version: 1.0.1 
+Language: Swift 2.1
 
 Author: Yari D'areglia [@Bitwaker](http://www.twitter.com/bitwaker)
 
@@ -23,6 +23,20 @@ BWWT is essentially defined by 2 classes:
 
 ## What it's not?
 BWWT is not a copy-paste-and-it-just-works class and it is not a fixed walkthrough template. If you need a simple no-configuration walkthrough, BWWT is not the right choice. 
+
+## Installation 
+### With CocoaPods
+
+BWWalkthrough is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod “BWWalkthrough”
+```
+
+### Manually 
+
+Include the `BWWalkthroughViewController.swift` and the `BWWalkthroughPageViewController.swift` files into your project. 
 
 ## How to use it?
 

@@ -1,0 +1,26 @@
+{
+  "name": "BWWalkthrough",
+  "version": "1.1.0",
+  "summary": "Generate custom walkthroughs for your apps.",
+  "description": "BWWalkthrough (BWWT) is a class that helps you create Walkthroughs for your iOS Apps. It differs from other similar classes in that there is no rigid template; rigid template; BWWT is just a layer placed over your controllers that gives you complete freedom on the design of your views",
+  "homepage": "https://github.com/ariok/BWWalkthrough",
+  "license": "MIT",
+  "authors": {
+    "Yari": "dareglia@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/ariok/BWWalkthrough.git",
+    "tag": "1.1.0"
+  },
+  "social_media_url": "https://twitter.com/bitwaker",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "BWWalkthrough": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

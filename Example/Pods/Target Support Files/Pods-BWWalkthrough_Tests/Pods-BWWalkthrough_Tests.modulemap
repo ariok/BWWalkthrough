@@ -1,0 +1,6 @@
+framework module Pods_BWWalkthrough_Tests {
+  umbrella header "Pods-BWWalkthrough_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
