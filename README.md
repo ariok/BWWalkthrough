@@ -1,6 +1,6 @@
-BWWalkthrough 
+BWWalkthrough
 ======================
-Version: 1.0.1 
+Version: 1.0.1
 Language: Swift 2.1
 
 Author: Yari D'areglia [@Bitwaker](http://www.twitter.com/bitwaker)
@@ -8,23 +8,23 @@ Author: Yari D'areglia [@Bitwaker](http://www.twitter.com/bitwaker)
 
 ## What is BWWalkthrough?
 BWWalkthrough (BWWT) is a class that helps you create **Walkthroughs** for your iOS Apps.
-It differs from other similar classes in that there is no rigid template; rigid template; BWWT is just a layer placed over your controllers that gives you complete **freedom on the design of your views.**.
+It differs from other similar classes in that there is no rigid template; BWWT is just a layer placed over your controllers that gives you complete **freedom on the design of your views.**.
 
 ![Preview](http://www.thinkandbuild.it/gifs/BWWalkthrough_mini2.gif)
 
 Video preview [Here](http://vimeo.com/106542773)
 
 The class comes with a set of **pre-built animations** that are automatically applied to the subviews of each page. This set can be  easily substituted with your custom animations.
- 
+
 BWWT is essentially defined by 2 classes:
 **BWWalkthroughViewController** is the Master (or Container). It shows the walkthrough and contains UI elements that are shared among all the Pages (like UIButtons and UIPageControl).
 
 **BWWalkthroughPageViewController** defines every single Page that is going to be displayed with the walkthrough inside the Master.
 
 ## What it's not?
-BWWT is not a copy-paste-and-it-just-works class and it is not a fixed walkthrough template. If you need a simple no-configuration walkthrough, BWWT is not the right choice. 
+BWWT is not a copy-paste-and-it-just-works class and it is not a fixed walkthrough template. If you need a simple no-configuration walkthrough, BWWT is not the right choice.
 
-## Installation 
+## Installation
 ### With CocoaPods
 
 BWWalkthrough is available through [CocoaPods](http://cocoapods.org). To install
@@ -34,28 +34,28 @@ it, simply add the following line to your Podfile:
 pod “BWWalkthrough”
 ```
 
-### Manually 
+### Manually
 
-Include the `BWWalkthroughViewController.swift` and the `BWWalkthroughPageViewController.swift` files into your project. 
+Include the `Pod/Classes/BWWalkthroughViewController.swift` and the `Pod/Classes/BWWalkthroughPageViewController.swift` files into your project.
 
 ## How to use it?
 
 #### Define the Master
 
-Add a new controller to the Storyboard and set its class as **BWWalkthroughViewController**. This is the Master controller where every page will be attached. 
+Add a new controller to the Storyboard and set its class as **BWWalkthroughViewController**. This is the Master controller where every page will be attached.
 
-Here you can add all the elements that have to be visible in all the Pages. 
+Here you can add all the elements that have to be visible in all the Pages.
 
 There are 4 prebuilt IBOutlets that you can attach to your elements to obtain some standard behaviours: UIPageControl (**pageControl**), UIButton to close/skip the walkthrough (**closeButton**) and UIButtons to navigate to the next and the previous page (**nextButton**, **prevButton**).
 You can take advantage of these IBOutlets just creating your UI elements and connecting them with the outlets of the Master controller.
 
 #### Define the Pages
 
-Add a new controller to the Storyboard and set it has **BWWalkthroughPageViewController**. Define your views as you prefer. 
+Add a new controller to the Storyboard and set it has **BWWalkthroughPageViewController**. Define your views as you prefer.
 
 #### Attach Pages to the Master
 
-Here is an example that shows how to create a walkthrough reading data from a dedicated Storyboard: 
+Here is an example that shows how to create a walkthrough reading data from a dedicated Storyboard:
 
         // Get view controllers and build the walkthrough
         let stb = UIStoryboard(name: "Walkthrough", bundle: nil)
@@ -63,26 +63,26 @@ Here is an example that shows how to create a walkthrough reading data from a de
         let page_one = stb.instantiateViewControllerWithIdentifier(“page1”) as UIViewController
         let page_two = stb.instantiateViewControllerWithIdentifier(“page2”) as UIViewController
         let page_three = stb.instantiateViewControllerWithIdentifier(“page3”) as UIViewController
-        
+
         // Attach the pages to the master
         walkthrough.delegate = self
         walkthrough.addViewController(page_one)
         walkthrough.addViewController(page_two)
         walkthrough.addViewController(page_three)
 
-## Prebuilt Animations 
+## Prebuilt Animations
 You can add animations without writing a line of code. You just implement a new Page with its subviews and set an animation style using the runtime argument {Key: **animationType**, type: String} via IB. The BWWalkthrough animates your views depending on the selected animation style.
 
 At the moment (WIP!) the possible value for animationsType are:
-**Linear**, **Curve**, **Zoom** and **InOut** 
+**Linear**, **Curve**, **Zoom** and **InOut**
 The speed of the animation on the X and Y axes **must** be modified using the runtime argument {key: **speed** type:CGPoint}, while the runtime argument {key: **speedVariance** type: CGPoint} adds a speed variation to the the subviews of the page depending on the hierarchy position.
 
 **Example**
-Let’s say that we have defined these runtime arguments for one of the Pages: 
+Let’s say that we have defined these runtime arguments for one of the Pages:
 
 - animationType: “Linear”
-- speed: {0,1} 
-- speedVariance: {0,2} 
+- speed: {0,1}
+- speedVariance: {0,2}
 
 The subviews of the Page will perform a linear animation adding speed to the upfront elements depending on speedVariance.
 So if we have 3 subviews, the speed of each view will be:
@@ -93,7 +93,7 @@ So if we have 3 subviews, the speed of each view will be:
 
 creating the ~~infamous~~ parallax effect.
 
-### Exclude Views from automatic animations 
+### Exclude Views from automatic animations
 You might need to avoid animations for some specific subviews.To stop those views to be part of the automatic BWWalkthrough animations you can just specify a list of views’ tags that you don’t want to animate. The Inspectable property `staticTags` (available from version ~> 0.6) accepts a `String` where you can list these tags separated by comma (“1,3,9”). The views indicated by those tags are now excluded from the automatic animations.
 
 ## Custom Animations
@@ -102,16 +102,16 @@ Each page of the walkthrough receives information about its normalized offset po
     func walkthroughDidScroll(position: CGFloat, offset: CGFloat) {
         var tr = CATransform3DIdentity
         tr.m34 = -1/500.0
-        
+
         titleLabel?.layer.transform = CATransform3DRotate(tr, CGFloat(M_PI)*2 * (1.0 - offset), 1, 1, 1)
     }
 
 ## Delegate
-The **BWWalkthroughViewControllerDelegate** protocol defines some useful methods that you can implement to get more control over the Walkthrough flow. 
+The **BWWalkthroughViewControllerDelegate** protocol defines some useful methods that you can implement to get more control over the Walkthrough flow.
 
     @objc protocol BWWalkthroughViewControllerDelegate {
         @objc optional func walkthroughCloseButtonPressed()
-        @objc optional func walkthroughNextButtonPressed()               
-        @objc optional func walkthroughPrevButtonPressed()               
-        @objc optional func walkthroughPageDidChange(pageNumber:Int)     
+        @objc optional func walkthroughNextButtonPressed()
+        @objc optional func walkthroughPrevButtonPressed()
+        @objc optional func walkthroughPageDidChange(pageNumber:Int)
     }
