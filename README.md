@@ -11,6 +11,7 @@ It differs from other similar classes in that there is no rigid template; BWWT i
 ![Preview](http://www.thinkandbuild.it/gifs/BWWalkthrough_mini2.gif)
 
 Video preview [Here](http://vimeo.com/106542773)
+A dedicated tutorial is available on [ThinkAndBuild](http://www.thinkandbuild.it/creating-custom-walkthroughs-for-your-apps/)
 
 The class comes with a set of **pre-built animations** that are automatically applied to the subviews of each page. This set can be  easily substituted with your custom animations.
 
@@ -113,3 +114,5 @@ The **BWWalkthroughViewControllerDelegate** protocol defines some useful methods
         @objc optional func walkthroughPrevButtonPressed()
         @objc optional func walkthroughPageDidChange(pageNumber:Int)
     }
+
+
