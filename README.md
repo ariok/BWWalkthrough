@@ -1,7 +1,5 @@
 BWWalkthrough
 ======================
-Version: 1.0.1
-Language: Swift 2.1
 
 Author: Yari D'areglia [@Bitwaker](http://www.twitter.com/bitwaker)
 
@@ -31,7 +29,7 @@ BWWalkthrough is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod “BWWalkthrough”
+pod "BWWalkthrough"
 ```
 
 ### Manually
