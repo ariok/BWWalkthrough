@@ -47,7 +47,13 @@ To integrate [BWWalkThrough](https://github.com/ariok/BWWalkthrough) to your pro
 ```bash
 github "Dershowitz011/BWWalkThrough1"
 ```
+Then run
+```bash
 
+carthage update --platform iOS //If you want only for iOS.
+carthage update                //If you want for all the supported platforms.
+
+```
 
 
 ### Manually
