@@ -97,6 +97,8 @@ At the moment it's only used to perform custom animations on didScroll.
     /// Holds the explicit width constraints for the pages to be updated when the screen size changes
     private var widthConstraints: [NSLayoutConstraint] = []
     private var heightConstraints: [NSLayoutConstraint] = []
+    /// Holds current page number during size transition to be used in `viewDidLayoutSubviews`
+    private var pageBeforeSizeTransition: Int?
     
     
     // MARK: - Overrides -
@@ -320,6 +322,16 @@ At the moment it's only used to perform custom animations on didScroll.
         // TODO: obtain size from scroll view instead, since that's their parent view
         widthConstraints.forEach({ $0.constant = size.width })
         heightConstraints.forEach({ $0.constant = size.height })
+        pageBeforeSizeTransition = currentPage
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let page = pageBeforeSizeTransition {
+            // TODO: Check that this does not affect animations and such, probably better call `walkthroughDidScroll`?
+            scrollview.contentOffset.x = CGFloat(page) * scrollview.bounds.size.width
+            pageBeforeSizeTransition = nil
+        }
     }
     
 }
