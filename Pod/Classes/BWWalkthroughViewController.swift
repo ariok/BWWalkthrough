@@ -94,6 +94,9 @@ At the moment it's only used to perform custom animations on didScroll.
     public let scrollview:UIScrollView!
     private var controllers:[UIViewController]!
     private var lastViewConstraint:NSArray?
+    /// Holds the explicit width constraints for the pages to be updated when the screen size changes
+    private var widthConstraints: [NSLayoutConstraint] = []
+    private var heightConstraints: [NSLayoutConstraint] = []
     
     
     // MARK: - Overrides -
@@ -197,6 +200,7 @@ At the moment it's only used to perform custom animations on didScroll.
     */
     public func addViewController(vc:UIViewController)->Void{
         
+        self.addChildViewController(vc)
         controllers.append(vc)
         
         // Setup the viewController view
@@ -206,13 +210,17 @@ At the moment it's only used to perform custom animations on didScroll.
         
         // Constraints
         
-        let metricDict = ["w":vc.view.bounds.size.width,"h":vc.view.bounds.size.height]
+        // Create an explicit width constraint for the page view that is updated when the screen size changes
+        let widthConstraint = NSLayoutConstraint(item: vc.view, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: vc.view.bounds.width)
+        // FIXME: Why doesn't an additional "-0-|" in the vertical visual format below work instead of the explicit height constraint?
+        let heightConstraint = NSLayoutConstraint(item: vc.view, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: vc.view.bounds.height)
+        self.widthConstraints.append(widthConstraint)
+        self.heightConstraints.append(heightConstraint)
         
         // - Generic cnst
         
-        vc.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[view(h)]", options:[], metrics: metricDict, views: ["view":vc.view]))
-        vc.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[view(w)]", options:[], metrics: metricDict, views: ["view":vc.view]))
-        scrollview.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]|", options:[], metrics: nil, views: ["view":vc.view,]))
+        vc.view.addConstraints([ widthConstraint, heightConstraint ])
+        scrollview.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]", options:[], metrics: nil, views: ["view":vc.view,]))
         
         // cnst for position: 1st element
         
@@ -234,6 +242,8 @@ At the moment it's only used to perform custom animations on didScroll.
             lastViewConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:[view]-0-|", options:[], metrics: nil, views: ["view":vc.view])
             scrollview.addConstraints(lastViewConstraint! as! [NSLayoutConstraint])
         }
+        
+        vc.didMoveToParentViewController(self)
     }
 
     /** 
@@ -306,6 +316,10 @@ At the moment it's only used to perform custom animations on didScroll.
     
     override public func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         print("SIZE")
+        // Make all views fill the entire screen
+        // TODO: obtain size from scroll view instead, since that's their parent view
+        widthConstraints.forEach({ $0.constant = size.width })
+        heightConstraints.forEach({ $0.constant = size.height })
     }
     
 }
