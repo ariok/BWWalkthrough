@@ -33,6 +33,29 @@ it, simply add the following line to your Podfile:
 pod "BWWalkthrough"
 ```
 
+##Carthage
+
+You can set it up with [Carthage](https://github.com/Carthage/Carthage)
+
+```bash
+brew update
+brew install carthage
+```
+
+To integrate [BWWalkThrough](https://github.com/ariok/BWWalkthrough) to your project, just add this to your Cartfile
+
+```bash
+github "Dershowitz011/BWWalkThrough1"
+```
+Then run
+```bash
+
+carthage update --platform iOS //If you want only for iOS.
+carthage update                //If you want for all the supported platforms.
+
+```
+
+
 ### Manually
 
 Include the `Pod/Classes/BWWalkthroughViewController.swift` and the `Pod/Classes/BWWalkthroughPageViewController.swift` files into your project.
