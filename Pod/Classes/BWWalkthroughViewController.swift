@@ -181,7 +181,7 @@ At the moment it's only used to perform custom animations on didScroll.
         }
     }
     
-    private func gotoPage(page:Int){
+    public func gotoPage(page:Int){
         
         if page < controllers.count{
             var frame = scrollview.frame
