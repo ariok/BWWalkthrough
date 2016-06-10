@@ -66,18 +66,20 @@ Add a new controller to the Storyboard and set it has **BWWalkthroughPageViewCon
 
 Here is an example that shows how to create a walkthrough reading data from a dedicated Storyboard:
 
-        // Get view controllers and build the walkthrough
-        let stb = UIStoryboard(name: "Walkthrough", bundle: nil)
-        let walkthrough = stb.instantiateViewControllerWithIdentifier(“Master”) as BWWalkthroughViewController
-        let page_one = stb.instantiateViewControllerWithIdentifier(“page1”) as UIViewController
-        let page_two = stb.instantiateViewControllerWithIdentifier(“page2”) as UIViewController
-        let page_three = stb.instantiateViewControllerWithIdentifier(“page3”) as UIViewController
+```swift
+// Get view controllers and build the walkthrough
+let stb = UIStoryboard(name: "Walkthrough", bundle: nil)
+let walkthrough = stb.instantiateViewControllerWithIdentifier(“Master”) as BWWalkthroughViewController
+let page_one = stb.instantiateViewControllerWithIdentifier(“page1”) as UIViewController
+let page_two = stb.instantiateViewControllerWithIdentifier(“page2”) as UIViewController
+let page_three = stb.instantiateViewControllerWithIdentifier(“page3”) as UIViewController
 
-        // Attach the pages to the master
-        walkthrough.delegate = self
-        walkthrough.addViewController(page_one)
-        walkthrough.addViewController(page_two)
-        walkthrough.addViewController(page_three)
+// Attach the pages to the master
+walkthrough.delegate = self
+walkthrough.addViewController(page_one)
+walkthrough.addViewController(page_two)
+walkthrough.addViewController(page_three)
+```
 
 ## Prebuilt Animations
 You can add animations without writing a line of code. You just implement a new Page with its subviews and set an animation style using the runtime argument {Key: **animationType**, type: String} via IB. The BWWalkthrough animates your views depending on the selected animation style.
@@ -89,7 +91,7 @@ The speed of the animation on the X and Y axes **must** be modified using the ru
 **Example**
 Let’s say that we have defined these runtime arguments for one of the Pages:
 
-- animationType: “Linear”
+- animationType: "Linear"
 - speed: {0,1}
 - speedVariance: {0,2}
 
@@ -107,22 +109,22 @@ You might need to avoid animations for some specific subviews.To stop those view
 
 ## Custom Animations
 Each page of the walkthrough receives information about its normalized offset position implementing the protocol **BWWalkthroughPage**, so you can extend the prebuilt animations adding your super-custom-shiny-woah™ animations depending on this value (here is a simple example)
-
-    func walkthroughDidScroll(position: CGFloat, offset: CGFloat) {
-        var tr = CATransform3DIdentity
-        tr.m34 = -1/500.0
-
-        titleLabel?.layer.transform = CATransform3DRotate(tr, CGFloat(M_PI)*2 * (1.0 - offset), 1, 1, 1)
-    }
+```swift
+func walkthroughDidScroll(position: CGFloat, offset: CGFloat) {
+    var tr = CATransform3DIdentity
+    tr.m34 = -1/500.0
+    titleLabel?.layer.transform = CATransform3DRotate(tr, CGFloat(M_PI)*2 * (1.0 - offset), 1, 1, 1)
+}
+```
 
 ## Delegate
 The **BWWalkthroughViewControllerDelegate** protocol defines some useful methods that you can implement to get more control over the Walkthrough flow.
-
-    @objc protocol BWWalkthroughViewControllerDelegate {
+```swift
+@objc protocol BWWalkthroughViewControllerDelegate {
         @objc optional func walkthroughCloseButtonPressed()
         @objc optional func walkthroughNextButtonPressed()
         @objc optional func walkthroughPrevButtonPressed()
         @objc optional func walkthroughPageDidChange(pageNumber:Int)
-    }
-
+}
+```
 
