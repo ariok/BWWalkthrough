@@ -67,7 +67,7 @@ At the moment it's only used to perform custom animations on didScroll.
     @IBOutlet public var nextButton:UIButton?
     @IBOutlet public var prevButton:UIButton?
     @IBOutlet public var closeButton:UIButton?
-    
+    public var alwaysVisibileNextButton = false
     public var currentPage:Int{    // The index of the current page (readonly)
         get{
             let page = Int((scrollview.contentOffset.x / view.bounds.size.width))
@@ -152,9 +152,8 @@ At the moment it's only used to perform custom animations on didScroll.
      * Progresses to the next page, or calls the finished delegate method if already on the last page
      */
     @IBAction public func nextPage(){
+        delegate?.walkthroughNextButtonPressed?()
         if (currentPage + 1) < controllers.count {
-            
-            delegate?.walkthroughNextButtonPressed?()
             gotoPage(currentPage + 1)
         }
     }
@@ -252,7 +251,7 @@ At the moment it's only used to perform custom animations on didScroll.
         
         // Hide/Show navigation buttons
         
-        if currentPage == controllers.count - 1{
+        if currentPage == controllers.count - 1 && !alwaysVisibileNextButton {
             nextButton?.hidden = true
         }else{
             nextButton?.hidden = false
