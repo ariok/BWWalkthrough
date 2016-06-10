@@ -33,6 +33,16 @@ it, simply add the following line to your Podfile:
 pod "BWWalkthrough"
 ```
 
+### With Carthage 
+
+Include this line into your `Cartfile`:
+
+```ruby
+github "ariok/BWWalkthrough"
+```
+
+Run carthage update to build the framework and drag the built BWWalkthrough.framework into your Xcode project.
+
 ### Manually
 
 Include the `Pod/Classes/BWWalkthroughViewController.swift` and the `Pod/Classes/BWWalkthroughPageViewController.swift` files into your project.
