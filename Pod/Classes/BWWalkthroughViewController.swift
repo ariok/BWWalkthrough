@@ -141,6 +141,8 @@ At the moment it's only used to perform custom animations on didScroll.
     override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
         
+        updateUI()
+        
         pageControl?.numberOfPages = controllers.count
         pageControl?.currentPage = 0
     }
