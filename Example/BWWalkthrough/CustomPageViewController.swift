@@ -21,7 +21,7 @@ class CustomPageViewController: UIViewController,BWWalkthroughPage {
 
     // MARK: BWWalkThroughPage protocol
     
-    func walkthroughDidScroll(position: CGFloat, offset: CGFloat) {
+    func walkthroughDidScroll(_ position: CGFloat, offset: CGFloat) {
         var tr = CATransform3DIdentity
         tr.m34 = -1/500.0
         

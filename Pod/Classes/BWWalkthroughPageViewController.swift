@@ -41,11 +41,11 @@ public enum WalkthroughAnimationType:String{
     }
 }
 
-public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
+open class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
     
-    private var animation:WalkthroughAnimationType = .Linear
-    private var subsWeights:[CGPoint] = Array()
-    private var notAnimatableViews:[Int] = [] // Array of views' tags that should not be animated during the scroll/transition
+    fileprivate var animation:WalkthroughAnimationType = .Linear
+    fileprivate var subsWeights:[CGPoint] = Array()
+    fileprivate var notAnimatableViews:[Int] = [] // Array of views' tags that should not be animated during the scroll/transition
     
     // MARK: Inspectable Properties
     // Edit these values using the Attribute inspector or modify directly the "User defined runtime attributes" in IB
@@ -62,16 +62,16 @@ public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPag
     @IBInspectable var animateAlpha:Bool = false
     @IBInspectable var staticTags:String {                                 // A comma separated list of tags that you don't want to animate during the transition/scroll 
         set(value){
-            self.notAnimatableViews = value.componentsSeparatedByString(",").map{Int($0)!}
+            self.notAnimatableViews = value.components(separatedBy: ",").map{Int($0)!}
         }
         get{
-            return notAnimatableViews.map{String($0)}.joinWithSeparator(",")
+            return notAnimatableViews.map{String($0)}.joined(separator: ",")
         }
     }
     
     // MARK: BWWalkthroughPage Implementation
 
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         self.view.layer.masksToBounds = true
         subsWeights = Array()
@@ -86,7 +86,7 @@ public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPag
         
     }
     
-    public func walkthroughDidScroll(position: CGFloat, offset: CGFloat) {
+    open func walkthroughDidScroll(_ position: CGFloat, offset: CGFloat) {
         
         for i in 0 ..< subsWeights.count{
             
@@ -116,8 +116,8 @@ public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPag
     
     // MARK: Animations (WIP)
     
-    private func animationAlpha(index:Int, _ offset:CGFloat){
-        let cView = view.subviews[index] 
+    fileprivate func animationAlpha(_ index:Int, _ offset:CGFloat) {
+        let cView = view.subviews[index]
         var mutableOffset = offset
         if(mutableOffset > 1.0){
             mutableOffset = 1.0 + (1.0 - mutableOffset)
@@ -125,14 +125,14 @@ public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPag
         cView.alpha = (mutableOffset)
     }
     
-    private func animationCurve(index:Int, _ offset:CGFloat){
+    fileprivate func animationCurve(_ index:Int, _ offset:CGFloat) {
         var transform = CATransform3DIdentity
         let x:CGFloat = (1.0 - offset) * 10
         transform = CATransform3DTranslate(transform, (pow(x,3) - (x * 25)) * subsWeights[index].x, (pow(x,3) - (x * 20)) * subsWeights[index].y, 0 )
         applyTransform(index, transform: transform)
     }
     
-    private func animationZoom(index:Int, _ offset:CGFloat){
+    fileprivate func animationZoom(_ index:Int, _ offset:CGFloat){
         var transform = CATransform3DIdentity
 
         var tmpOffset = offset
@@ -144,14 +144,14 @@ public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPag
         applyTransform(index, transform: transform)
     }
     
-    private func animationLinear(index:Int, _ offset:CGFloat){
+    fileprivate func animationLinear(_ index:Int, _ offset:CGFloat) {
         var transform = CATransform3DIdentity
         let mx:CGFloat = (1.0 - offset) * 100
         transform = CATransform3DTranslate(transform, mx * subsWeights[index].x, mx * subsWeights[index].y, 0 )
         applyTransform(index, transform: transform)
     }
     
-    private func animationInOut(index:Int, _ offset:CGFloat){
+    fileprivate func animationInOut(_ index:Int, _ offset:CGFloat) {
         var transform = CATransform3DIdentity
         //var x:CGFloat = (1.0 - offset) * 20
         
@@ -163,7 +163,7 @@ public class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPag
         applyTransform(index, transform: transform)
     }
     
-    private func applyTransform(index:Int, transform:CATransform3D){
+    fileprivate func applyTransform(_ index:Int, transform:CATransform3D){
         let subview = view.subviews[index]
         if !notAnimatableViews.contains(subview.tag){
             view.subviews[index].layer.transform = transform
