@@ -1,6 +1,8 @@
 BWWalkthrough
 ======================
 
+[![CocoaPods](https://img.shields.io/cocoapods/v/BWWalkthrough.svg?maxAge=2592000)]() [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 Author: Yari D'areglia [@Bitwaker](http://www.twitter.com/bitwaker)
 
 
