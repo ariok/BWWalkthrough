@@ -28,6 +28,8 @@ BWWT is not a copy-paste-and-it-just-works class and it is not a fixed walkthrou
 ## Installation
 ### With CocoaPods
 
+- Note: Installation through CocoaPods doesn't install the latest version of BWWalkthrough. Please use Carthage or the Manual installation instead. Follow #77 for more information. 
+
 BWWalkthrough is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
