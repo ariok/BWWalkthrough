@@ -201,14 +201,14 @@ At the moment it's only used to perform custom animations on didScroll.
         
         // Constraints
         
-        let metricDict = ["w":vc.view.bounds.size.width,"h":vc.view.bounds.size.height]
+        let viewsDict: [String: UIView] = ["view":vc.view, "scrollView": scrollview]
         
         // - Generic cnst
         
-        vc.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(h)]", options:[], metrics: metricDict, views: ["view":vc.view] as [String: UIView]))
-        vc.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(w)]", options:[], metrics: metricDict, views: ["view":vc.view] as [String: UIView]))
-        scrollview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]|", options:[], metrics: nil, views: ["view":vc.view] as [String: UIView]))
-        
+        scrollview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==scrollView)]", options:[], metrics: nil, views: viewsDict))
+        scrollview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(==scrollView)]", options:[], metrics: nil, views: viewsDict))
+        scrollview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]|", options:[], metrics: nil, views: viewsDict))
+        a
         // cnst for position: 1st element
         
         if controllers.count == 1{
