@@ -208,7 +208,6 @@ At the moment it's only used to perform custom animations on didScroll.
         scrollview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==scrollView)]", options:[], metrics: nil, views: viewsDict))
         scrollview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(==scrollView)]", options:[], metrics: nil, views: viewsDict))
         scrollview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]|", options:[], metrics: nil, views: viewsDict))
-
         // cnst for position: 1st element
         
         if controllers.count == 1{
@@ -257,7 +256,7 @@ At the moment it's only used to perform custom animations on didScroll.
             prevButton?.isHidden = false
         }
     }
-    
+  
     // MARK: - Scrollview Delegate -
     
     open func scrollViewDidScroll(_ sv: UIScrollView) {
@@ -291,14 +290,42 @@ At the moment it's only used to perform custom animations on didScroll.
     open func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         updateUI()
     }
-    
-    /* WIP */
+  
+    // MARK - Handling size transitions -
+  
     override open func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        print("CHANGE")
+      adjustOffsetForTransition()
     }
     
     override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print("SIZE")
+      adjustOffsetForTransition()
     }
+  
+    /**
+     Adjust content offset for transition.
+     **/
     
+    fileprivate func adjustOffsetForTransition() {
+    
+        // Get the current page before the transition occurs, otherwise the new size of content will change the index
+        let currentPage = self.currentPage
+      
+        // Delay is so that the view has the transition's target dimensions
+        delay(seconds: 0.1) {
+            self.gotoPage(currentPage)
+        }
+    }
+  
+    // MARK: - Helpers -
+  
+    /**
+     Helper method to delay firing another method
+     **/
+  
+    fileprivate func delay(seconds: Double, completion:@escaping ()->()) {
+      let popTime = DispatchTime.now() + Double(Int64( Double(NSEC_PER_SEC) * seconds )) / Double(NSEC_PER_SEC)
+      DispatchQueue.main.asyncAfter(deadline: popTime) {
+        completion()
+      }
+    }
 }
