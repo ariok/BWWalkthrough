@@ -1,9 +1,10 @@
-BWWalkthrough
-======================
-
+<p align="center" >
+<img src="http://www.thinkandbuild.it/gifs/bwwalkthrough.png" width="200"/>
+</p>
+<br>
 [![CocoaPods](https://img.shields.io/cocoapods/v/BWWalkthrough.svg?maxAge=2592000)]() [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-
-Author: Yari D'areglia [@Bitwaker](http://www.twitter.com/bitwaker)
+[![Platform](https://img.shields.io/cocoapods/p/BWWalkthrough.svg?style=flat)](http://cocoadocs.org/docsets/BWWalkthrough)
+[![Twitter](https://img.shields.io/badge/twitter-@bitwaker-59ADEB.svg?style=flat)](http://twitter.com/bitwaker)
 
 
 ## What is BWWalkthrough?
@@ -28,7 +29,7 @@ BWWT is not a copy-paste-and-it-just-works class and it is not a fixed walkthrou
 ## Installation
 ### With CocoaPods
 
-- Note: Installation through CocoaPods doesn't install the latest version of BWWalkthrough. Please use Carthage or the Manual installation instead. Follow #77 for more information. 
+- Note: Installation through CocoaPods doesn't install the latest version of BWWalkthrough. Please use Carthage or the Manual installation instead. Follow #77 for more information.
 
 BWWalkthrough is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -37,7 +38,7 @@ it, simply add the following line to your Podfile:
 pod "BWWalkthrough"
 ```
 
-### With Carthage 
+### With Carthage
 
 Include this line into your `Cartfile`:
 
@@ -131,4 +132,3 @@ The **BWWalkthroughViewControllerDelegate** protocol defines some useful methods
         @objc optional func walkthroughPageDidChange(pageNumber:Int)
 }
 ```
-
