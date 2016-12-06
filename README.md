@@ -81,9 +81,9 @@ let page_three = stb.instantiateViewControllerWithIdentifier(“page3”) as UIV
 
 // Attach the pages to the master
 walkthrough.delegate = self
-walkthrough.addViewController(page_one)
-walkthrough.addViewController(page_two)
-walkthrough.addViewController(page_three)
+walkthrough.add(viewController:page_one)
+walkthrough.add(viewController:page_two)
+walkthrough.add(viewController:page_three)
 ```
 
 ## Prebuilt Animations
