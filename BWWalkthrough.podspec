@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "BWWalkthrough"
-  s.version          = "1.2.0"
+  s.version          = "1.2.1"
   s.summary          = "Generate custom walkthroughs for your apps."
   s.homepage         = "https://github.com/ariok/BWWalkthrough"
   s.license          = 'MIT'
