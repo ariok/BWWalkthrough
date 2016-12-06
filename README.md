@@ -50,7 +50,7 @@ Run carthage update to build the framework and drag the built BWWalkthrough.fram
 
 ### Manually
 
-Include the `Pod/Classes/BWWalkthroughViewController.swift` and the `Pod/Classes/BWWalkthroughPageViewController.swift` files into your project.
+Include the `BWWalkthrough/BWWalkthroughViewController.swift` and the `BWWalkthrough/BWWalkthroughPageViewController.swift` files into your project.
 
 ## How to use it?
 
