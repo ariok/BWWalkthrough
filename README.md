@@ -2,7 +2,9 @@
 <img src="http://www.thinkandbuild.it/gifs/bwwalkthrough.png" width="200"/>
 </p>
 <br>
-[![CocoaPods](https://img.shields.io/cocoapods/v/BWWalkthrough.svg)]() [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+[![CocoaPods](https://img.shields.io/cocoapods/v/BWWalkthrough.svg)]()
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/BWWalkthrough.svg?style=flat)](http://cocoadocs.org/docsets/BWWalkthrough)
 [![Twitter](https://img.shields.io/badge/twitter-@bitwaker-59ADEB.svg?style=flat)](http://twitter.com/bitwaker)
 
