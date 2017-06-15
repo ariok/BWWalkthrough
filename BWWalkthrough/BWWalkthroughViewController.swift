@@ -133,6 +133,7 @@ import UIKit
         view.addConstraint(NSLayoutConstraint(item: scrollview, attribute: isRTL ? .leading : .trailing, relatedBy: .equal, toItem: scrollview.superview, attribute: isRTL ? .leading : .trailing, multiplier: 1, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: scrollview, attribute: isRTL ? .trailing : .leading, relatedBy: .equal, toItem: scrollview.superview, attribute: isRTL ? .trailing : .leading, multiplier: 1, constant: 0))
         
+        scrollview.transform = CGAffineTransform(scaleX: isRTL ? -1 : 1, y: 1)
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -226,6 +227,8 @@ import UIKit
             lastViewConstraint = [NSLayoutConstraint(item: viewController.view, attribute: isRTL ? .leading : .trailing, relatedBy: .equal, toItem: viewController.view.superview, attribute: isRTL ? .leading : .trailing, multiplier: 1, constant: 0)]
             scrollview.addConstraints(lastViewConstraint!)
         }
+        
+        viewController.view.transform = CGAffineTransform(scaleX: isRTL ? -1 : 1, y: 1)
     }
 
     /// Update the UI to reflect the current walkthrough status
