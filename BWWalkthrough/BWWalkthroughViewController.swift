@@ -104,6 +104,15 @@ import UIKit
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
+    private lazy var isRTL: Bool = {
+        if #available(iOS 9.0, *) {
+            return UIView.userInterfaceLayoutDirection(
+                for: self.view.semanticContentAttribute) == .rightToLeft
+        } else {
+            return UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft
+        }
+    }()
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         
@@ -121,7 +130,8 @@ import UIKit
         // Set scrollview related constraints
         
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[scrollview]-0-|", options:[], metrics: nil, views: ["scrollview":scrollview] as [String: UIView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[scrollview]-0-|", options:[], metrics: nil, views: ["scrollview":scrollview] as [String: UIView]))
+        view.addConstraint(NSLayoutConstraint(item: scrollview, attribute: isRTL ? .leading : .trailing, relatedBy: .equal, toItem: scrollview.superview, attribute: isRTL ? .leading : .trailing, multiplier: 1, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: scrollview, attribute: isRTL ? .trailing : .leading, relatedBy: .equal, toItem: scrollview.superview, attribute: isRTL ? .trailing : .leading, multiplier: 1, constant: 0))
         
     }
     
@@ -199,7 +209,7 @@ import UIKit
         
         // cnst for position: 1st element
         if controllers.count == 1{
-            scrollview.addConstraint(NSLayoutConstraint(item: viewController.view, attribute: .trailing, relatedBy: .equal, toItem: viewController.view.superview, attribute: .trailing, multiplier: 1, constant: 0))
+            scrollview.addConstraint(NSLayoutConstraint(item: viewController.view, attribute: isRTL ? .trailing : .leading, relatedBy: .equal, toItem: viewController.view.superview, attribute: isRTL ? .trailing : .leading, multiplier: 1, constant: 0))
         
         // cnst for position: other elements
         } else {
@@ -207,13 +217,13 @@ import UIKit
             let previousVC = controllers[controllers.count-2]
             if let previousView = previousVC.view {
                 // For this constraint to work, previousView can not be optional
-                scrollview.addConstraint(NSLayoutConstraint(item: viewController.view, attribute: .trailing, relatedBy: .equal, toItem: previousView, attribute: .leading, multiplier: 1, constant: 0))
+                scrollview.addConstraint(NSLayoutConstraint(item: viewController.view, attribute: isRTL ? .trailing : .leading, relatedBy: .equal, toItem: previousView, attribute: isRTL ? .leading : .trailing, multiplier: 1, constant: 0))
             }
             
             if let cst = lastViewConstraint {
                 scrollview.removeConstraints(cst)
             }
-            lastViewConstraint = [NSLayoutConstraint(item: viewController.view, attribute: .leading, relatedBy: .equal, toItem: viewController.view.superview, attribute: .leading, multiplier: 1, constant: 0)]
+            lastViewConstraint = [NSLayoutConstraint(item: viewController.view, attribute: isRTL ? .leading : .trailing, relatedBy: .equal, toItem: viewController.view.superview, attribute: isRTL ? .leading : .trailing, multiplier: 1, constant: 0)]
             scrollview.addConstraints(lastViewConstraint!)
         }
     }
