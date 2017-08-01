@@ -87,7 +87,10 @@ import UIKit
     public let scrollview = UIScrollView()
     private var controllers = [UIViewController]()
     private var lastViewConstraint: [NSLayoutConstraint]?
-    
+
+    /// Used for properly forwarding disappearance callbacks
+    fileprivate var appearingViewController: UIViewController? = nil
+    fileprivate var disappearingViewController: UIViewController? = nil
     
     // MARK: - Overrides -
     
@@ -123,14 +126,38 @@ import UIKit
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[scrollview]-0-|", options:[], metrics: nil, views: ["scrollview":scrollview] as [String: UIView]))
         
     }
+
+    open override var shouldAutomaticallyForwardAppearanceMethods: Bool {
+        return false
+    }
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
-        
-        updateUI()
+
+        updateUI(passOnAppearance: false)
         
         pageControl?.numberOfPages = controllers.count
         pageControl?.currentPage = 0
+        
+        currentViewController.beginAppearanceTransition(true, animated: true)
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        currentViewController.endAppearanceTransition()
+    }
+    
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        currentViewController.beginAppearanceTransition(false, animated: animated)
+    }
+    
+    open override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        currentViewController.endAppearanceTransition()
     }
     
     
@@ -166,12 +193,18 @@ import UIKit
     
     fileprivate func gotoPage(_ page:Int){
         
-        if page < controllers.count{
+        if page < controllers.count {
+            disappearingViewController = currentViewController
+            disappearingViewController?.beginAppearanceTransition(false, animated: true)
+            appearingViewController = controllers[page]
+            appearingViewController?.beginAppearanceTransition(true, animated: true)
+            
             var frame = scrollview.frame
             frame.origin.x = CGFloat(page) * frame.size.width
             scrollview.scrollRectToVisible(frame, animated: true)
         }
     }
+    
     
     /// Add a new page to the walkthrough.
     /// To have information about the current position of the page in the walkthrough add a UIViewController which implements BWWalkthroughPage
@@ -223,10 +256,25 @@ import UIKit
     }
 
     /// Update the UI to reflect the current walkthrough status
-    fileprivate func updateUI(){
+    fileprivate func updateUI(passOnAppearance: Bool = true){
         
         pageControl?.currentPage = currentPage
         delegate?.walkthroughPageDidChange?(currentPage)
+        
+        if passOnAppearance {
+            disappearingViewController?.endAppearanceTransition()
+            if let appearing = appearingViewController {
+                appearing.endAppearanceTransition()
+            } else {
+                // This can happen if the user is paging manually, in which case
+                // we didn't know which one the appearing view controller will be
+                appearingViewController = currentViewController
+                appearingViewController?.beginAppearanceTransition(true, animated: false)
+                appearingViewController?.endAppearanceTransition()
+            }
+            disappearingViewController = nil
+            appearingViewController = nil
+        }
         
         // Hide/Show navigation buttons
         if currentPage == controllers.count - 1{
@@ -245,6 +293,11 @@ import UIKit
     // MARK: - Scrollview Delegate -
     
     open func scrollViewDidScroll(_ sv: UIScrollView) {
+        
+        if disappearingViewController == nil {
+            disappearingViewController = currentViewController
+            disappearingViewController?.beginAppearanceTransition(false, animated: false)
+        }
         
         for i in 0 ..< controllers.count {
             
