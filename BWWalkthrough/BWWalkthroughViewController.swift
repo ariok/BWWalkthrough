@@ -159,7 +159,7 @@ import UIKit
         delegate?.walkthroughCloseButtonPressed?()
     }
     
-    func pageControlDidTouch(){
+    @objc func pageControlDidTouch(){
         if let pc = pageControl{
             gotoPage(pc.currentPage)
         }
