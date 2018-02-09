@@ -54,7 +54,7 @@ import UIKit
     
     // MARK: - Public properties -
     
-    weak open var delegate:BWWalkthroughViewControllerDelegate?
+    @objc weak open var delegate:BWWalkthroughViewControllerDelegate?
     
     // If you need a page control, next or prev buttons, add them via IB and connect with these Outlets
     @IBOutlet open var pageControl:UIPageControl?
@@ -62,21 +62,21 @@ import UIKit
     @IBOutlet open var prevButton:UIButton?
     @IBOutlet open var closeButton:UIButton?
     
-    open var currentPage: Int {    // The index of the current page (readonly)
+    @objc open var currentPage: Int {    // The index of the current page (readonly)
         get{
             let page = Int((scrollview.contentOffset.x / view.bounds.size.width))
             return page
         }
     }
     
-    open var currentViewController:UIViewController{ //the controller for the currently visible page
+    @objc open var currentViewController:UIViewController{ //the controller for the currently visible page
         get{
             let currentPage = self.currentPage;
             return controllers[currentPage];
         }
     }
     
-    open var numberOfPages:Int{ //the total number of pages in the walkthrough
+    @objc open var numberOfPages:Int{ //the total number of pages in the walkthrough
         get {
             return self.controllers.count
         }
@@ -177,7 +177,7 @@ import UIKit
     /// Add a new page to the walkthrough.
     /// To have information about the current position of the page in the walkthrough add a UIViewController which implements BWWalkthroughPage
     /// - viewController: The view controller that will be added at the end of the view controllers list.
-    open func add(viewController:UIViewController)->Void{
+    @objc open func add(viewController:UIViewController)->Void{
         
         controllers.append(viewController)
         
