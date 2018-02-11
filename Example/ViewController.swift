@@ -41,6 +41,9 @@ class ViewController: UIViewController, BWWalkthroughViewControllerDelegate {
         let page_two = stb.instantiateViewController(withIdentifier: "walk2")
         let page_three = stb.instantiateViewController(withIdentifier: "walk3")
         
+        // Modify the status bar style if needed
+        walkthrough.statusBarStyle = UIStatusBarStyle.lightContent
+        
         // Attach the pages to the master
         walkthrough.delegate = self
         walkthrough.add(viewController:page_one)

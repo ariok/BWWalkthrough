@@ -82,6 +82,7 @@ import UIKit
         }
     }
     
+    open var statusBarStyle = UIStatusBarStyle.default
     
     // MARK: - Private properties -
     
@@ -297,4 +298,7 @@ import UIKit
         adjustOffsetForTransition()
     }
     
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return statusBarStyle
+    }
 }
