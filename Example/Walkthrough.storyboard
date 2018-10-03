@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Walkthrough View Controller-->
         <scene sceneID="f1r-A2-2vT">
@@ -28,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="JJV-op-rSU">
-                                <rect key="frame" x="168" y="263" width="39" height="37"/>
+                                <rect key="frame" x="168" y="273" width="39" height="37"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oX-Xj-2Xl">
                                 <rect key="frame" x="314" y="30" width="45" height="29"/>
@@ -72,7 +66,7 @@
                             <constraint firstItem="3Ad-hv-8C6" firstAttribute="leading" secondItem="Xnf-dR-UXp" secondAttribute="leadingMargin" constant="-16" id="js7-xG-bvC"/>
                             <constraint firstItem="VXm-Ru-t4o" firstAttribute="top" secondItem="3Ad-hv-8C6" secondAttribute="bottom" constant="20" id="mv9-pb-u4d"/>
                             <constraint firstItem="VXm-Ru-t4o" firstAttribute="top" secondItem="4oX-Xj-2Xl" secondAttribute="bottom" constant="20" id="o36-qL-A9g"/>
-                            <constraint firstItem="N4y-CV-VgM" firstAttribute="top" secondItem="JJV-op-rSU" secondAttribute="bottom" constant="-280" id="vnH-wR-sp4"/>
+                            <constraint firstItem="N4y-CV-VgM" firstAttribute="top" secondItem="JJV-op-rSU" secondAttribute="bottom" constant="-290" id="vnH-wR-sp4"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -222,7 +216,7 @@
                                 <rect key="frame" x="163.5" y="454" width="47" height="47"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.32980523950000001" green="0.74408280770000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="HjC-th-GUy" firstAttribute="top" secondItem="bM9-g6-tPB" secondAttribute="bottom" constant="-27" id="19L-iy-gyi"/>
                             <constraint firstItem="HjC-th-GUy" firstAttribute="leading" secondItem="ilO-KC-33e" secondAttribute="leadingMargin" constant="-16" id="2Fd-iZ-WKh"/>
