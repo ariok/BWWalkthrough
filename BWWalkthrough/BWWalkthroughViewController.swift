@@ -64,7 +64,7 @@ import UIKit
     
     open var currentPage: Int {    // The index of the current page (readonly)
         get{
-            let page = Int((scrollview.contentOffset.x / view.bounds.size.width))
+            let page = Int((scrollview.contentOffset.x / view.bounds.size.width) + 0.5)
             return page
         }
     }
@@ -265,13 +265,23 @@ import UIKit
             disappearingViewController?.endAppearanceTransition()
             if let appearing = appearingViewController {
                 appearing.endAppearanceTransition()
-            } else {
+                
+                if appearing != currentViewController {
+                    // transition did not complete
+                    appearing.beginAppearanceTransition(false, animated: false)
+                    appearing.endAppearanceTransition()
+                    appearingViewController = nil
+                }
+            }
+                
+            if appearingViewController == nil {
                 // This can happen if the user is paging manually, in which case
                 // we didn't know which one the appearing view controller will be
                 appearingViewController = currentViewController
                 appearingViewController?.beginAppearanceTransition(true, animated: false)
                 appearingViewController?.endAppearanceTransition()
             }
+            
             disappearingViewController = nil
             appearingViewController = nil
         }
@@ -301,7 +311,7 @@ import UIKit
         
         for i in 0 ..< controllers.count {
             
-            if let vc = controllers[i] as? BWWalkthroughPage{
+            if let vc = controllers[i] as? UIViewController & BWWalkthroughPage {
             
                 let mx = ((scrollview.contentOffset.x + view.bounds.size.width) - (view.bounds.size.width * CGFloat(i))) / view.bounds.size.width
                 
@@ -317,6 +327,12 @@ import UIKit
                 if(mx < 2 && mx > -2.0){
                     vc.walkthroughDidScroll(to:scrollview.contentOffset.x, offset: mx)
                 }
+              
+                if appearingViewController == nil, vc != currentViewController, mx > 0, mx < 2 {
+                  appearingViewController = vc
+                  appearingViewController?.beginAppearanceTransition(true, animated: false)
+                }
+              
             }
         }
     }
