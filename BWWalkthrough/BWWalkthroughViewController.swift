@@ -203,22 +203,26 @@ import UIKit
         
         // cnst for position: 1st element
         if controllers.count == 1{
-            scrollview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]", options:[], metrics: nil, views: ["view":viewController.view]))
+            if let currentView = viewController.view {
+                scrollview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]", options:[], metrics: nil, views: ["view":currentView]))
+            }
         
         // cnst for position: other elements
         } else {
             
             let previousVC = controllers[controllers.count-2]
-            if let previousView = previousVC.view {
+            if let previousView = previousVC.view, let currentView = viewController.view {
                 // For this constraint to work, previousView can not be optional
-                scrollview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[previousView]-0-[view]", options:[], metrics: nil, views: ["previousView":previousView,"view":viewController.view]))
+                scrollview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[previousView]-0-[view]", options:[], metrics: nil, views: ["previousView":previousView,"view":currentView]))
             }
             
             if let cst = lastViewConstraint {
                 scrollview.removeConstraints(cst)
             }
-            lastViewConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:[view]-0-|", options:[], metrics: nil, views: ["view":viewController.view])
-            scrollview.addConstraints(lastViewConstraint!)
+            if let currentView = viewController.view {
+                lastViewConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:[view]-0-|", options:[], metrics: nil, views: ["view":currentView])
+                scrollview.addConstraints(lastViewConstraint!)
+            }
         }
     }
 
