@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'BWWalkthrough'
-  spec.version = '3.0.0'
+  spec.version = '4.0.0'
   spec.summary = 'BWWalkthrough is a class to build custom walkthroughs for your iOS App'
   spec.homepage = 'https://github.com/ariok/bwwalkthrough'
   spec.license = { :type => 'MIT', :file => 'LICENSE' }
@@ -8,8 +8,8 @@ Pod::Spec.new do |spec|
   spec.social_media_url = 'http://twitter.com/bitwaker'
   spec.source = { :git => 'https://github.com/ariok/BWWalkthrough.git', :tag => "#{spec.version}" }
   spec.source_files = 'BWWalkthrough/*.swift'
-  spec.ios.deployment_target = '10.0'
+  spec.ios.deployment_target = '9.0'
   spec.requires_arc = true
   spec.module_name = 'BWWalkthrough'
-  spec.swift_version = '4.2'
+  spec.swift_version = '5.0'
 end
