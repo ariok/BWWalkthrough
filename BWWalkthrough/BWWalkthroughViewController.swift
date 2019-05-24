@@ -143,9 +143,9 @@ import UIKit
     // MARK: - Internal methods -
     
     @IBAction open func nextPage(){
+        delegate?.walkthroughNextButtonPressed?()
+
         if (currentPage + 1) < controllers.count {
-            
-            delegate?.walkthroughNextButtonPressed?()
             gotoPage(currentPage + 1)
         }
     }
