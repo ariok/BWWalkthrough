@@ -97,6 +97,12 @@ import UIKit
         scrollview.showsVerticalScrollIndicator = false
         scrollview.isPagingEnabled = true
         super.init(coder: aDecoder)
+
+        if #available(iOS 11.0, *) {
+            scrollview.contentInsetAdjustmentBehavior = .never
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = false
+        }
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
