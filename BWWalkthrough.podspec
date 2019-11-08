@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   spec.social_media_url = 'http://twitter.com/bitwaker'
   spec.source = { :git => 'https://github.com/ariok/BWWalkthrough.git', :tag => "#{spec.version}" }
   spec.source_files = 'BWWalkthrough/*.swift'
-  spec.ios.deployment_target = '9.0'
+  spec.ios.deployment_target = '8.0'
   spec.requires_arc = true
   spec.module_name = 'BWWalkthrough'
   spec.swift_version = '5.0'
