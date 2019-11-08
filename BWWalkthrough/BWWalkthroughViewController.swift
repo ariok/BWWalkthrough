@@ -49,7 +49,7 @@ import UIKit
     @objc func walkthroughDidScroll(to:CGFloat, offset:CGFloat)   // Called when the main Scrollview...scrolls
 }
 
-
+@objcMembers
 @objc open class BWWalkthroughViewController: UIViewController, UIScrollViewDelegate{
     
     // MARK: - Public properties -
@@ -158,7 +158,7 @@ import UIKit
         delegate?.walkthroughCloseButtonPressed?()
     }
     
-    @objc func pageControlDidTouch(){
+    func pageControlDidTouch(){
         if let pc = pageControl{
             gotoPage(pc.currentPage)
         }
