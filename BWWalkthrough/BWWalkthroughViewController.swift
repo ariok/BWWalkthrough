@@ -36,6 +36,8 @@ import UIKit
     @objc optional func walkthroughNextButtonPressed()               // Called when the "next page" button is pressed
     @objc optional func walkthroughPrevButtonPressed()               // Called when the "previous page" button is pressed
     @objc optional func walkthroughPageDidChange(_ pageNumber:Int)   // Called when current page changes
+
+    @objc optional func walkthroughDidScroll(from: Int, offset: CGFloat)   // Called when scrolling
 }
 
 
@@ -249,7 +251,8 @@ import UIKit
     // MARK: - Scrollview Delegate -
     
     open func scrollViewDidScroll(_ sv: UIScrollView) {
-        
+        let mx = ((scrollview.contentOffset.x + view.bounds.size.width) - (view.bounds.size.width * CGFloat(currentPage))) / view.bounds.size.width
+        delegate?.walkthroughDidScroll?(from: currentPage, offset: mx)
         for i in 0 ..< controllers.count {
             
             if let vc = controllers[i] as? BWWalkthroughPage{
