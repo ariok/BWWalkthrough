@@ -97,6 +97,12 @@ import UIKit
         scrollview.showsVerticalScrollIndicator = false
         scrollview.isPagingEnabled = true
         super.init(coder: aDecoder)
+
+        if #available(iOS 11.0, *) {
+            scrollview.contentInsetAdjustmentBehavior = .never
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = false
+        }
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -137,9 +143,9 @@ import UIKit
     // MARK: - Internal methods -
     
     @IBAction open func nextPage(){
+        delegate?.walkthroughNextButtonPressed?()
+
         if (currentPage + 1) < controllers.count {
-            
-            delegate?.walkthroughNextButtonPressed?()
             gotoPage(currentPage + 1)
         }
     }
