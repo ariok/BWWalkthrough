@@ -53,6 +53,41 @@ github "ariok/BWWalkthrough"
 
 Run carthage update to build the framework and drag the built BWWalkthrough.framework into your Xcode project.
 
+### With Swift Package Manager
+	``` swift
+	// swift-tools-version:5.0
+	
+	import PackageDescription
+	
+	let package = Package(
+	  name: "YourTestProject",
+	  platforms: [
+	       .iOS(.v10),
+	  ],
+	  dependencies: [
+	    .package(url: "https://github.com/ariok/BWWalkthrough/.git", from: "4.0.1")
+	  ],
+	  targets: [
+	    .target(name: "YourTestProject", dependencies: ["BWWalkthrough"])
+	  ]
+	)
+	```
+	And then import wherever needed: ```import BWWalkthrough```
+	
+	#### Adding it to an existent iOS Project via Swift Package Manager
+	
+	1. Using Xcode 11 go to File > Swift Packages > Add Package Dependency
+	2. Paste the project URL: https://github.com/ariok/BWWalkthrough
+	3. Click on next and select the project target
+	
+	If you have doubts, please, check the following links:
+	
+	[How to use](https://developer.apple.com/videos/play/wwdc2019/408/)
+	
+	[Creating Swift Packages](https://developer.apple.com/videos/play/wwdc2019/410/)
+	
+	After successfully retrieved the package and added it to your project, just import `BWWalkthrough` and you can get the full benefits of it.
+
 ### Manually
 
 Include the `BWWalkthrough/BWWalkthroughViewController.swift` and the `BWWalkthrough/BWWalkthroughPageViewController.swift` files into your project.
