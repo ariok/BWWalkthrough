@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'BWWalkthrough'
-  spec.version = '4.0.0'
+  spec.version = '4.0.2'
   spec.summary = 'BWWalkthrough is a class to build custom walkthroughs for your iOS App'
   spec.homepage = 'https://github.com/ariok/bwwalkthrough'
   spec.license = { :type => 'MIT', :file => 'LICENSE' }
