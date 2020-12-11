@@ -18,7 +18,32 @@ class CustomPageViewController: UIViewController, BWWalkthroughPage{
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
+        print("Appearing: \(titleLabel?.text)")
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        print("Appeared: \(titleLabel?.text)")
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        print("Disappearing: \(titleLabel?.text)")
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        print("Disappeared: \(titleLabel?.text)")
+    }
+
+  
     // MARK: BWWalkThroughPage protocol
     
     func walkthroughDidScroll(to: CGFloat, offset: CGFloat) {
